@@ -1,71 +1,37 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>تم بنجاح</title>
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      background-color: white;
-      font-family: 'Arial', sans-serif;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      text-align: center;
-      padding: 20px;
-    }
-
-    .checkmark {
-      font-size: 80px;
-      color: #28a745;
-      margin-bottom: 20px;
-    }
-
-    .message {
-      font-size: 18px;
-      color: #222;
-      line-height: 1.6;
-      margin-bottom: 30px;
-    }
-
-    .logo img {
-      max-width: 150px;
-      height: auto;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    }
-
-    @media (max-width: 480px) {
-      .checkmark {
-        font-size: 60px;
-      }
-
-      .message {
-        font-size: 16px;
-      }
-
-      .logo img {
-        max-width: 120px;
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>صفحة نجاح</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffffff;
+            text-align: center;
+            padding: 20px;
+        }
+        .logo {
+            width: 150px;
+            height: 150px;
+            margin: 20px auto;
+            border-radius: 50%;
+        }
+        .success-message {
+            font-size: 24px;
+            color: #000000;
+            margin-bottom: 20px;
+        }
+        .success-icon {
+            font-size: 48px;
+            color: #00ff00;
+            margin-bottom: 20px;
+        }
+    </style>
 </head>
 <body>
-
-  <div class="checkmark">✔️</div>
-
-  <div class="message">
-    لقد تم ملأ المعلومات بنجاح.<br>
-    سنتواصل معك في القريب العاجل سواء على واتساب أم عن طريق مكالمة.
-  </div>
-
-  <div class="logo">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/%D8%B4%D8%B9%D8%A7%D8%B1_dxn.jpg" alt="شعار DXN">
-  </div>
-
+    <img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/2/2a/%D8%B4%D8%B9%D8%A7%D8%B1_dxn.jpg" alt="شعار شركة DXN">
+    <div class="success-icon">&#10004;</div>
+    <div class="success-message">لقد تم ملأ المعلومات بنجاح. سنتواصل معك في القريب العاجل سواء على واتساب أم عن طريق مكالمة</div>
 </body>
 </html>
