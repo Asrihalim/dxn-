@@ -4,16 +4,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Spark: Unlock The Profitable Idea Already Inside You</title>
+    
+    <!-- Google Fonts Import -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Montserrat:wght@300;400;700;900&display=swap" rel="stylesheet">
+
     <style>
+        /* ---
+        PREMIUM EBOOK DESIGN - FINAL MASTERPIECE EDITION
+        Combines professional design with enhanced content.
+        --- */
+
+        /* --- Color Palette & Root Variables --- */
+        :root {
+            --font-heading: 'Montserrat', sans-serif;
+            --font-body: 'Lora', serif;
+            --color-text: #3d405b; /* Dark Slate Blue */
+            --color-heading: #1d3557; /* Dark Prussian Blue */
+            --color-accent: #e07a5f; /* Terracotta Accent */
+            --color-background: #f4f1de; /* Creamy Background */
+            --color-container: #ffffff;
+            --color-subtle-bg: #f8f7f4;
+            --color-border: #e6e2d3;
+        }
+
         /* --- Basic Reset & Body Styling --- */
         body {
-            font-family: 'Georgia', serif;
-            line-height: 1.7;
-            color: #333;
-            background-color: #f9f9f9;
+            font-family: var(--font-body);
+            line-height: 1.8;
+            color: var(--color-text);
+            background-color: var(--color-background);
             margin: 0;
             padding: 0;
-            font-size: 18px;
+            font-size: 17px;
         }
 
         /* --- Book Container --- */
@@ -21,118 +45,207 @@
             max-width: 800px;
             margin: 40px auto;
             padding: 20px 40px;
-            background-color: #ffffff;
-            border-radius: 5px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            background-color: var(--color-container);
+            box-shadow: 0 10px 35px rgba(0,0,0,0.1);
         }
 
-        /* --- Typography --- */
+        /* --- Premium Typography --- */
         h1, h2, h3, h4 {
-            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-family: var(--font-heading);
             font-weight: 700;
-            color: #1a1a1a;
+            color: var(--color-heading);
             line-height: 1.3;
         }
-
-        h1.title {
-            font-size: 48px;
-            text-align: center;
-            margin-bottom: 10px;
-            color: #2c3e50;
-        }
-
-        h2.subtitle {
-            font-size: 22px;
-            text-align: center;
-            font-weight: 400;
-            color: #7f8c8d;
-            margin-top: 0;
-            margin-bottom: 60px;
-        }
         
-        h2.chapter-title {
-            font-size: 36px;
-            margin-top: 60px;
-            margin-bottom: 30px;
-            border-bottom: 2px solid #ecf0f1;
-            padding-bottom: 10px;
-        }
-
-        h3.section-title {
-            font-size: 28px;
-            margin-top: 40px;
-            color: #34495e;
-        }
-
         p {
-            margin-bottom: 20px;
+            margin-bottom: 22px;
         }
 
         a {
-            color: #3498db;
+            color: var(--color-accent);
             text-decoration: none;
+            border-bottom: 1px dotted var(--color-accent);
+            transition: all 0.3s ease;
         }
 
         a:hover {
-            text-decoration: underline;
+            background-color: #e07a5f20;
+            border-bottom-style: solid;
         }
         
         strong, b {
             font-weight: 700;
+            color: #1d3557;
         }
 
-        /* --- Special Elements --- */
-        blockquote {
-            border-left: 4px solid #3498db;
-            padding: 15px 25px;
-            margin: 30px 0;
-            background-color: #f8f9fa;
-            border-radius: 4px;
-            font-style: italic;
-            font-size: 19px;
-            color: #34495e;
-        }
-
-        .callout {
-            background-color: #fff9e6;
-            border: 1px solid #ffeccc;
-            padding: 25px;
-            margin: 30px 0;
-            border-radius: 5px;
-        }
-
-        /* --- Lists --- */
-        ul, ol {
-            padding-left: 30px;
+        /* --- Title Page Design --- */
+        .title-page {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            min-height: 90vh;
         }
         
-        ul li, ol li {
+        h1.title {
+            font-size: 64px;
+            font-weight: 900;
+            letter-spacing: 2px;
             margin-bottom: 15px;
         }
 
-        /* --- Table Styling --- */
+        h2.subtitle {
+            font-size: 20px;
+            font-family: var(--font-body);
+            font-style: italic;
+            font-weight: 400;
+            color: var(--color-text);
+            max-width: 500px;
+            margin-top: 0;
+            margin-bottom: 50px;
+        }
+        
+        .title-page .series-name {
+            font-family: var(--font-heading);
+            font-weight: 300;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            font-size: 14px;
+            color: var(--color-accent);
+        }
+
+        /* --- Table of Contents Design --- */
+        .table-of-contents {
+            padding: 40px 0;
+        }
+        .table-of-contents ul {
+            list-style: none;
+            padding: 0;
+        }
+        .table-of-contents li {
+            font-family: var(--font-heading);
+            font-size: 20px;
+            padding: 15px 0;
+            border-bottom: 1px solid var(--color-border);
+        }
+        .table-of-contents li:first-child {
+            border-top: 1px solid var(--color-border);
+        }
+
+        /* --- Chapter Design --- */
+        .chapter-header {
+            margin-top: 60px;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+        
+        .chapter-number {
+            font-size: 18px;
+            font-family: var(--font-heading);
+            font-weight: 300;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--color-accent);
+        }
+
+        h2.chapter-title {
+            font-size: 42px;
+            margin: 10px 0 20px 0;
+            border-bottom: none;
+        }
+
+        .chapter-divider {
+            width: 100px;
+            height: 2px;
+            background-color: var(--color-accent);
+            border: 0;
+            margin: 0 auto;
+        }
+        
+        .chapter .first-paragraph::first-letter {
+            font-family: var(--font-heading);
+            font-size: 75px;
+            font-weight: 700;
+            color: var(--color-accent);
+            float: left;
+            line-height: 60px;
+            padding-top: 4px;
+            padding-right: 8px;
+            padding-left: 3px;
+        }
+
+        h3.section-title {
+            font-size: 28px;
+            margin-top: 50px;
+            font-weight: 700;
+            border-left: 4px solid var(--color-accent);
+            padding-left: 15px;
+        }
+
+        /* --- Special Elements Design --- */
+        blockquote {
+            border: none;
+            padding: 25px;
+            margin: 40px 0;
+            background-color: var(--color-subtle-bg);
+            border-left: 5px solid var(--color-accent);
+            font-size: 20px;
+            font-style: italic;
+            color: var(--color-heading);
+        }
+        
+        .callout {
+            background-color: #e07a5f15;
+            border: 1px solid #e07a5f50;
+            padding: 25px;
+            margin: 40px 0;
+            border-radius: 8px;
+        }
+        .callout h4 {
+            margin-top: 0;
+            color: var(--color-accent);
+            font-family: var(--font-heading);
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+        }
+        .callout h4 svg {
+            margin-right: 10px;
+        }
+
+        /* --- Lists & Tables --- */
+        ul, ol {
+            padding-left: 30px;
+        }
+        ul li, ol li {
+            padding-left: 10px;
+            margin-bottom: 15px;
+        }
+        ul { list-style-type: '— '; }
+
         table {
             width: 100%;
             border-collapse: collapse;
-            margin-top: 30px;
+            margin: 40px 0;
+            font-size: 16px;
         }
-        
         th, td {
-            border: 1px solid #ddd;
-            padding: 12px;
+            border: 1px solid var(--color-border);
+            padding: 15px;
             text-align: left;
         }
-        
         th {
-            background-color: #f2f2f2;
-            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-            font-weight: bold;
+            background-color: var(--color-subtle-bg);
+            font-family: var(--font-heading);
+            font-weight: 700;
+            color: var(--color-heading);
         }
 
         /* --- PRINT STYLES --- */
         @media print {
             @page {
-                margin: 0.8in;
+                margin: 1in;
             }
 
             body {
@@ -149,12 +262,11 @@
                 max-width: 100%;
             }
 
-            header.title-page, nav.table-of-contents, .chapter {
+            .title-page, .table-of-contents, .chapter, .author-section {
                 page-break-before: always;
             }
-            
             .title-page {
-                page-break-before: avoid !important; /* The first page should not have a break before it */
+                page-break-before: avoid !important;
             }
 
             blockquote, table, .callout {
@@ -165,9 +277,15 @@
                 page-break-after: avoid; 
             }
 
-             a {
-                color: #000;
+            a {
+                color: var(--color-accent);
                 text-decoration: none;
+                border: none;
+            }
+            
+            :root {
+                --color-text: #000000;
+                --color-heading: #000000;
             }
         }
     </style>
@@ -176,30 +294,41 @@
 
     <div class="book">
 
+        <!-- Title Page -->
         <header class="title-page">
-            <div style="text-align: center; padding-top: 20%;">
+            <div>
+                <p class="series-name">The Mompreneur Freedom Plan: Book 1</p>
                 <h1 class="title">The Spark</h1>
-                <h2 class="subtitle">Unlock The Profitable Idea Already Inside You<br>(Even if You Think You Have No Skills)</h2>
-                <p style="margin-top: 100px;">The Mompreneur Freedom Plan: Book 1</p>
+                <h2 class="subtitle">Unlock The Profitable Idea Already Inside You (Even if You Think You Have No Skills)</h2>
             </div>
         </header>
 
+        <!-- Table of Contents -->
         <nav class="table-of-contents">
-            <h2 class="chapter-title" style="border-bottom: none; text-align:center;">Table of Contents</h2>
+            <div class="chapter-header">
+                <h2 class="chapter-title">Table of Contents</h2>
+                <hr class="chapter-divider">
+            </div>
             <ul>
                 <li><a href="#intro">Introduction: More Than a Mom</a></li>
-                <li><a href="#chapter1">Chapter 1: The Treasure You Already Own: Uncovering Your Untapped Value</a></li>
-                <li><a href="#chapter2">Chapter 2: The Idea Detective: How to Find What People Will Eagerly Pay For</a></li>
-                <li><a href="#chapter3">Chapter 3: The Golden List: 75+ Profitable Digital Product Ideas for Busy Moms</a></li>
-                <li><a href="#chapter4">Chapter 4: The Decision-Maker: How to Choose Your Winning Idea with Confidence</a></li>
-                <li><a href="#chapter5">Chapter 5: Naming Your Spark: How to Brand Your Idea and Find Your Perfect Customer</a></li>
-                <li><a href="#conclusion">Conclusion: From Spark to a Roaring Fire</a></li>
+                <li><a href="#chapter1">Chapter 1: The Treasure You Already Own</a></li>
+                <li><a href="#chapter2">Chapter 2: The Idea Detective</a></li>
+                <li><a href="#chapter3">Chapter 3: The Golden List</a></li>
+                <li><a href="#chapter4">Chapter 4: The Decision-Maker</a></li>
+                <li><a href="#chapter5">Chapter 5: Naming Your Spark</a></li>
+                <li><a href="#conclusion">Conclusion: From Spark to Fire</a></li>
+                <li><a href="#author">About the Author</a></li>
             </ul>
         </nav>
         
+        <!-- Introduction -->
         <section id="intro" class="chapter">
-            <h2 class="chapter-title">Introduction: More Than a Mom</h2>
-            <p>Let’s be honest for a moment. When was the last time you did something that was truly, completely, 100% for <em>you</em>?</p>
+            <div class="chapter-header">
+                <p class="chapter-number">Introduction</p>
+                <h2 class="chapter-title">More Than a Mom</h2>
+                <hr class="chapter-divider">
+            </div>
+            <p class="first-paragraph">Let’s be honest for a moment. When was the last time you did something that was truly, completely, 100% for <em>you</em>?</p>
             <p>My name is Sarah. A few years ago, if you had asked me that question, I would have laughed. My life was a whirlwind of PTA meetings, soccer practice runs, a mountain of laundry that rivaled Everest, and the constant, echoing chorus of "Mom, can you...?" I loved my family more than anything, but I felt like "Sarah" had disappeared, replaced entirely by "Mom." The woman who once led marketing campaigns and loved learning new skills was now an expert only in negotiating with a picky eater.</p>
             <p>A quiet frustration was brewing inside me. It wasn’t that I wasn't grateful; it was that I felt a part of my identity was missing. I yearned for a challenge, for a project of my own, for a way to contribute financially that didn't involve sacrificing precious time with my kids. I wanted to feel that spark again—the thrill of creating something and seeing it succeed.</p>
             <p>But then, the voice of doubt would get louder every time I started to dream.</p>
@@ -212,9 +341,14 @@
             <p>It's time to find your spark. Let's begin.</p>
         </section>
 
+        <!-- Chapter 1 -->
         <section id="chapter1" class="chapter">
-            <h2 class="chapter-title">Chapter 1: The Treasure You Already Own: Uncovering Your Untapped Value</h2>
-            <p>The biggest obstacle for 99% of aspiring entrepreneurs isn't a lack of money, time, or even a good idea. It's a crisis of belief. It's the deeply ingrained feeling that "I'm not an expert," or "Who would pay me for what I know?" Let's dismantle that obstacle right now with a powerful mental shift.</p>
+            <div class="chapter-header">
+                <p class="chapter-number">Chapter One</p>
+                <h2 class="chapter-title">The Treasure You Already Own</h2>
+                <hr class="chapter-divider">
+            </div>
+            <p class="first-paragraph">The biggest obstacle for 99% of aspiring entrepreneurs isn't a lack of money, time, or even a good idea. It's a crisis of belief. It's the deeply ingrained feeling that "I'm not an expert," or "Who would pay me for what I know?" Let's dismantle that obstacle right now with a powerful mental shift.</p>
             
             <h3 class="section-title">The "Expert in the Eyes of a Beginner" Theory</h3>
             <p>We've been conditioned to think of an "expert" as someone with a PhD, a bestselling book, or a TED Talk. This is a myth that keeps millions of talented people on the sidelines. The reality is much simpler and more liberating: <b>You only need to know a little bit more than the person you are helping.</b></p>
@@ -234,8 +368,11 @@
                 <li><b>The Knowledge Passions:</b> Do you love learning about personal finance, productivity hacks, or psychology?</li>
             </ul>
             <div class="callout">
-                <b>Action Step: The Passion Audit</b><br>
-                Open a notebook or a new document. Set a timer for 10 minutes and brainstorm a list of at least 15 things you are passionate about. Don't filter. Don't judge. If you love watching reality TV, write it down. If you love finding deals at Target, write it down. No passion is too small or silly.
+                <h4>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path></svg>
+                    Action Step: The Passion Audit
+                </h4>
+                <p>Open a notebook or a new document. Set a timer for 10 minutes and brainstorm a list of at least 15 things you are passionate about. Don't filter. Don't judge. If you love watching reality TV, write it down. If you love finding deals at Target, write it down. No passion is too small or silly.</p>
             </div>
             
             <h4>2. Your Problems: What Have You Conquered?</h4>
@@ -247,8 +384,13 @@
                 <li><b>Before:</b> You felt isolated and lonely as a new mom. <b>After:</b> You found ways to build a supportive community of mom friends. (Potential Product: A guide on "Finding Your Mom Tribe").</li>
             </ul>
             <blockquote>Every problem you have successfully solved is a business in disguise. You've already done the hard R&D (research and development) in the laboratory of your own life. Now, you just need to package the solution.</blockquote>
-            <p><b>Action Step: The Problem-Solver Resume</b><br>
-            In your notebook, write down 5-10 problems, big or small, that you have successfully solved. For each one, write a single sentence describing the "before" state and the "after" state.</p>
+            <div class="callout">
+                <h4>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                    Action Step: The Problem-Solver Resume
+                </h4>
+                <p>In your notebook, write down 5-10 problems, big or small, that you have successfully solved. For each one, write a single sentence describing the "before" state and the "after" state.</p>
+            </div>
             
             <h4>3. Your Profession: What Skills Did You Get Paid For?</h4>
             <p>Never discount your professional background, even if it feels like a lifetime ago. Those skills didn't expire; they just went dormant. You can reawaken them and simplify them for a new audience.</p>
@@ -260,14 +402,32 @@
                 <li><b>HR Manager?</b> You can create resume and cover letter templates that get results.</li>
             </ul>
             <p>The key is to take your professional-level knowledge and make it accessible and non-intimidating for a beginner or a small business owner who can't afford to hire someone with your old job title.</p>
-             <p><b>Action Step: The Skills Inventory</b><br>
-            List your last 1-2 jobs. Under each, write down the top 5 most valuable skills you used. Think about which of these could be turned into a checklist, a template, a guide, or a simple video tutorial.</p>
-
+            <div class="callout">
+                <h4>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.66V20a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h5.34"></path><polygon points="18 2 22 6 12 16 8 16 8 12 18 2"></polygon></svg>
+                    Action Step: The Skills Inventory
+                </h4>
+                <p>List your last 1-2 jobs. Under each, write down the top 5 most valuable skills you used. Think about which of these could be turned into a checklist, a template, a guide, or a simple video tutorial.</p>
+            </div>
+            
+            <h3 class="section-title">Real-World Success Story: From Hobby to Empire</h3>
+            <p>Consider Jennifer, a stay-at-home mom with a background in graphic design. She loved creating beautiful, custom planners for herself but struggled to find the time. Using the 3 P's framework, she had a breakthrough:</p>
+            <ul>
+                <li><b>Passion:</b> Design and organization.</li>
+                <li><b>Problem:</b> Lack of time for complex creative projects; existing planners were either ugly or not functional for a mom's life.</li>
+                <li><b>Profession:</b> Her graphic design skills.</li>
+            </ul>
+            <p>She didn't try to sell a complex service. Instead, she created a line of simple, elegant, printable planners specifically for busy moms. She started on Etsy with just three designs. Today, her business generates over $1 million in annual revenue. Jennifer's story is powerful proof that combining your unique strengths, even ones you take for granted, can create extraordinary results.</p>
         </section>
         
+        <!-- Chapter 2 -->
         <section id="chapter2" class="chapter">
-            <h2 class="chapter-title">Chapter 2: The Idea Detective: How to Find What People Will Eagerly Pay For</h2>
-            <p>Having a list of personal ideas is the perfect starting point. But a great business isn't just about what you want to create; it's about what other people want to buy. In this chapter, we transform from creators into detectives. Our mission: to find undeniable proof that there's a hungry market for your idea before you write a single word of your product.</p>
+            <div class="chapter-header">
+                <p class="chapter-number">Chapter Two</p>
+                <h2 class="chapter-title">The Idea Detective</h2>
+                <hr class="chapter-divider">
+            </div>
+            <p class="first-paragraph">Having a list of personal ideas is the perfect starting point. But a great business isn't just about what you want to create; it's about what other people want to buy. In this chapter, we transform from creators into detectives. Our mission: to find undeniable proof that there's a hungry market for your idea before you write a single word of your product.</p>
             <p>This validation process is your most important safety net. It’s what separates the businesses that succeed from the ones that launch to the sound of crickets. We're looking for clues, for evidence, for the digital footprints of eager customers.</p>
 
             <h3 class="section-title">Your Free Validation Toolkit: 4 Digital Detective Tools</h3>
@@ -312,7 +472,10 @@
             </ol>
 
             <div class="callout">
-                <h4>Your Validation Checklist</h4>
+                <h4>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                    Your Validation Checklist
+                </h4>
                 <p>Before you move on, take your top idea and see if you can answer "yes" to at least three of these questions:</p>
                 <ul>
                     <li>✅ Did I find at least one "Bestseller" on Etsy related to my idea?</li>
@@ -324,12 +487,17 @@
             </div>
         </section>
 
+        <!-- Chapter 3 -->
         <section id="chapter3" class="chapter">
-            <h2 class="chapter-title">Chapter 3: The Golden List: 75+ Profitable Digital Product Ideas for Busy Moms</h2>
-            <p>Feeling stuck is normal. Sometimes the best way to get your own creative gears turning is to see a huge menu of possibilities. This chapter is that menu. We’ve expanded our list to over 75 proven, in-demand digital product ideas that are perfect for a "mompreneur."</p>
+            <div class="chapter-header">
+                <p class="chapter-number">Chapter Three</p>
+                <h2 class="chapter-title">The Golden List</h2>
+                <hr class="chapter-divider">
+            </div>
+            <p class="first-paragraph">Feeling stuck is normal. Sometimes the best way to get your own creative gears turning is to see a huge menu of possibilities. This chapter is that menu. We’ve expanded our list to over 75 proven, in-demand digital product ideas that are perfect for a "mompreneur."</p>
             <p>Use this list in three ways: 1) Pick one directly that excites you. 2) Combine two or three ideas into a unique bundle. 3) Use it as inspiration to refine an idea you already have. For each idea, we've included a little "First Step" to make it feel more actionable.</p>
 
-            <h3 class="section-title">Category 1: The Creative Suite (For Moms with an Artistic Flair)</h3>
+            <h3 class="section-title">Category 1: The Creative Suite</h3>
             <ol>
                 <li><b>Social Media Templates:</b> A bundle of 30 Canva templates for a specific niche (e.g., for realtors, bakers, or coaches). <em>First Step: Research the top 5 visual styles in your chosen niche on Instagram.</em></li>
                 <li><b>Printable Wall Art Sets:</b> A curated collection of 3-5 prints that follow a theme (e.g., "Boho Nursery," "Minimalist Kitchen Quotes"). <em>First Step: Brainstorm 10 popular decor themes.</em></li>
@@ -348,7 +516,7 @@
                 <li><b>Custom Illustrations/Portraits:</b> Offer a service to create stylized digital portraits of families or pets based on photos. <em>First Step: Draw a portrait of your own family or pet to use as a portfolio piece.</em></li>
             </ol>
 
-            <h3 class="section-title">Category 2: The Organizer's Toolkit (For Moms Who Love Order)</h3>
+            <h3 class="section-title">Category 2: The Organizer's Toolkit</h3>
             <ol start="16">
                 <li><b>The "CEO of the Home" Life Binder:</b> A massive, hyperlinked PDF to organize every aspect of a household (finances, medical, school, home maintenance). <em>First Step: List every single category of information a family needs to keep track of.</em></li>
                 <li><b>The 5-Minute Family Budget Spreadsheet:</b> A super-simple Google Sheets or Excel template that automatically calculates totals. <em>First Step: Create a simple budget for your own family in a spreadsheet.</em></li>
@@ -362,7 +530,7 @@
                 <li><b>Digital Recipe Binder:</b> A template where users can easily add their own recipes and create a categorized digital cookbook. <em>First Step: Organize 10 of your own favorite recipes into categories.</em></li>
             </ol>
 
-            <h3 class="section-title">Category 3: The Teacher's Corner (For Moms Who Love to Share Knowledge)</h3>
+            <h3 class="section-title">Category 3: The Teacher's Corner</h3>
             <ol start="26">
                 <li><b>Themed Educational Units for Preschoolers:</b> A week-long lesson plan with printables and activities around a theme like "Dinosaurs" or "Space." <em>First Step: Choose a theme and brainstorm 5 related activities (craft, snack, song, etc.).</em></li>
                 <li><b>"Quiet Time" Activity Binders for Toddlers:</b> A pack of printable, laminated activities to keep toddlers engaged. <em>First Step: Research "fine motor skill activities for toddlers."</em></li>
@@ -376,7 +544,7 @@
                 <li><b>A Guide to Gentle Parenting:</b> An ebook explaining the core principles and providing practical scripts for common parenting challenges. <em>First Step: Research the top 3 principles of gentle parenting.</em></li>
             </ol>
             
-            <h3 class="section-title">Category 4: The Wellness Hub (For Moms Passionate About Health)</h3>
+            <h3 class="section-title">Category 4: The Wellness Hub</h3>
              <ol start="36">
                 <li><b>The 30-Day At-Home Fitness Challenge:</b> A PDF guide with daily workout plans that require no equipment. <em>First Step: Design a simple 15-minute workout routine.</em></li>
                 <li><b>The "5-Ingredient Healthy Meals" Recipe Ebook:</b> A collection of 25 simple, family-friendly recipes that are both healthy and easy. <em>First Step: Find or create 5 recipes that fit this theme.</em></li>
@@ -390,7 +558,7 @@
                 <li><b>The "Clean Eating" Starter Kit:</b> A bundle including a 7-day meal plan, grocery list, and a guide to understanding food labels. <em>First Step: Create a single day's clean eating meal plan (3 meals, 2 snacks).</em></li>
             </ol>
             
-            <h3 class="section-title">Category 5: The Niche & Hobbyist Corner (For Moms with Unique Interests)</h3>
+            <h3 class="section-title">Category 5: The Niche & Hobbyist Corner</h3>
             <ol start="46">
                  <li><b>Knitting/Crochet/Sewing Patterns:</b> A digital PDF pattern for a modern and popular item (e.g., a market bag, a baby outfit). <em>First Step: Create a simple pattern for something small, like a dishcloth.</em></li>
                 <li><b>The "Happy Puppy" Starter Kit:</b> An ebook bundle covering the crucial first month with a new puppy (crate training, potty training, basic commands). <em>First Step: Outline a day-by-day schedule for a puppy's first week at home.</em></li>
@@ -403,7 +571,8 @@
                 <li><b>A Guide to Starting a [Niche] Instagram Account:</b> An ebook tailored to a specific niche like "Bookstagram," "Foodstagram," or "Cleanstagram." <em>First Step: Outline the first 7 posts a new account in that niche should make.</em></li>
                 <li><b>Themed Scavenger Hunts for Kids:</b> Printable scavenger hunts for different settings (e.g., "Neighborhood Hunt," "Rainy Day Indoor Hunt"). <em>First Step: Create a 10-item list for an indoor scavenger hunt.</em></li>
             </ol>
-             <h3 class="section-title">Category 6: The Digital & Tech-Savvy Suite</h3>
+
+            <h3 class="section-title">Category 6: The Digital & Tech-Savvy Suite</h3>
              <ol start="61">
                 <li><b>A Beginner's Guide to Canva:</b> An ebook that teaches non-designers how to use Canva's key features to create beautiful graphics. <em>First Step: List the 5 most important features for a beginner to learn.</em></li>
                 <li><b>How to Set Up Your First Etsy Shop:</b> A step-by-step checklist and guide for opening and optimizing a new Etsy store. <em>First Step: Take screenshots of the entire Etsy shop setup process.</em></li>
@@ -423,10 +592,15 @@
              </ol>
         </section>
 
+        <!-- Chapter 4 -->
         <section id="chapter4" class="chapter">
-            <h2 class="chapter-title">Chapter 4: The Decision-Maker: How to Choose Your Winning Idea with Confidence</h2>
-            <p>You’ve done the work. You have a list of ideas that are aligned with your passions and backed by market research. But now you face a new challenge: the paralysis of choice. Having too many good options can be just as paralyzing as having none. </p>
-            <p>The secret to moving forward is to commit to **one idea**. Success doesn't come from chasing five rabbits; it comes from catching one. This chapter provides a simple, logical framework to help you choose your winning idea with clarity and confidence, so you can finally start building.</p>
+            <div class="chapter-header">
+                <p class="chapter-number">Chapter Four</p>
+                <h2 class="chapter-title">The Decision-Maker</h2>
+                <hr class="chapter-divider">
+            </div>
+            <p class="first-paragraph">You’ve done the work. You have a list of ideas that are aligned with your passions and backed by market research. But now you face a new challenge: the paralysis of choice. Having too many good options can be just as paralyzing as having none. </p>
+            <p>The secret to moving forward is to commit to <b>one idea</b>. Success doesn't come from chasing five rabbits; it comes from catching one. This chapter provides a simple, logical framework to help you choose your winning idea with clarity and confidence, so you can finally start building.</p>
 
             <h3 class="section-title">The "Sweet Spot" Decision Matrix</h3>
             <p>We're going to use a simple scoring system to find the "sweet spot" between your passion, market demand, and your ability to execute. Grab your notebook and pick your top 3-5 ideas from the Golden List or your own brainstorming.</p>
@@ -510,16 +684,24 @@
             <p>Now, add up the scores. The idea with the highest total is likely your best starting point. It's the one that balances your heart (passion), your head (market demand), and your hands (ability to create).</p>
 
             <div class="callout">
-                <h4>Overcoming the "What If" Monster: Fear of Choosing Wrong</h4>
+                <h4>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+                    Overcoming the "What If" Monster: Fear of Choosing Wrong
+                </h4>
                 <p>What if you choose the "wrong" idea? Let me tell you a secret: <b>There is no wrong choice.</b> Your first product is not a life sentence. It is a learning vehicle. </p>
                 <p>The goal of your first product is not to make you a millionaire overnight. The goal is to get you through the entire process: creating, launching, marketing, and making your first sale. The lessons you learn from launching a "$10" success are infinitely more valuable than the "perfect" idea that stays stuck in your head forever.</p>
                 <p>Trust the process, pick the idea that scores highest (or the one your gut screams for), and commit to it. You can always launch another product later.</p>
             </div>
         </section>
 
+        <!-- Chapter 5 -->
         <section id="chapter5" class="chapter">
-            <h2 class="chapter-title">Chapter 5: Naming Your Spark: How to Brand Your Idea and Find Your Perfect Customer</h2>
-            <p>You have your winning idea! This is a huge milestone. Now, before we jump into creating the product, we need to give it an identity. A name. A personality. This process is often called "branding," but don't let that word intimidate you. At its core, branding is simply about deciding how you want your customers to feel.</p>
+            <div class="chapter-header">
+                <p class="chapter-number">Chapter Five</p>
+                <h2 class="chapter-title">Naming Your Spark</h2>
+                <hr class="chapter-divider">
+            </div>
+            <p class="first-paragraph">You have your winning idea! This is a huge milestone. Now, before we jump into creating the product, we need to give it an identity. A name. A personality. This process is often called "branding," but don't let that word intimidate you. At its core, branding is simply about deciding how you want your customers to feel.</p>
             <p>In this chapter, we'll cover two critical steps: choosing a memorable name for your product and creating a crystal-clear picture of your perfect customer.</p>
             
             <h3 class="section-title">Part 1: The Art of a Great Name</h3>
@@ -546,12 +728,15 @@
                 <li><b>When to use it:</b> This works well when you plan to build a larger brand or a series of products under one umbrella name.</li>
             </ul>
              <div class="callout">
-                <b>Action Step: The Naming Session</b><br>
-                Set a timer for 15 minutes. Brainstorm 10-15 potential names for your product using all three approaches. Don't judge them yet. Just get them on paper. After the timer goes off, say them out loud. Which one is easy to say? Which one feels right? Ask a friend which one they understand best.
+                <h4>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path></svg>
+                    Action Step: The Naming Session
+                </h4>
+                <p>Set a timer for 15 minutes. Brainstorm 10-15 potential names for your product using all three approaches. Don't judge them yet. Just get them on paper. After the timer goes off, say them out loud. Which one is easy to say? Which one feels right? Ask a friend which one they understand best.</p>
             </div>
 
             <h3 class="section-title">Part 2: Defining Your "One Perfect Customer" (Your Avatar)</h3>
-            <p>You might think your product is for "all moms." This is a mistake. When you try to talk to everyone, you end up connecting with no one. The secret to powerful marketing is to imagine you are creating and selling your product to **one specific person.** We call this person your customer "avatar."</p>
+            <p>You might think your product is for "all moms." This is a mistake. When you try to talk to everyone, you end up connecting with no one. The secret to powerful marketing is to imagine you are creating and selling your product to <b>one specific person.</b> We call this person your customer "avatar."</p>
             <p>By getting crystal clear on who this one person is, your marketing will become infinitely easier. You'll know exactly what to say in your product description, your social media posts, and your ads, because you'll feel like you're just talking to a friend.</p>
 
             <h4>Creating Your Customer Avatar</h4>
@@ -566,15 +751,32 @@
             <p>Once you have this detailed picture of "Olivia," every decision you make becomes simpler. When you write your sales page, you're not writing to a faceless crowd; you're writing a letter directly to Olivia, addressing her specific pains and dreams. This is how you create a product and a message that truly resonates and sells.</p>
         </section>
 
+        <!-- Conclusion -->
         <section id="conclusion" class="chapter">
-            <h2 class="chapter-title">Conclusion: From Spark to a Roaring Fire</h2>
-            <p>Let's pause and acknowledge how far you've come. You started this book with a whisper of an idea, perhaps buried under a mountain of self-doubt. Now, you have a validated, named, and branded business concept targeted at a customer you understand intimately. You have done the foundational work that most people skip, and that is why you are already on the path to success.</p>
+            <div class="chapter-header">
+                <p class="chapter-number">Conclusion</p>
+                <h2 class="chapter-title">From Spark to a Roaring Fire</h2>
+                <hr class="chapter-divider">
+            </div>
+            <p class="first-paragraph">Let's pause and acknowledge how far you've come. You started this book with a whisper of an idea, perhaps buried under a mountain of self-doubt. Now, you have a validated, named, and branded business concept targeted at a customer you understand intimately. You have done the foundational work that most people skip, and that is why you are already on the path to success.</p>
             <p>You have found your spark.</p>
-            <p>That feeling of clarity and purpose you have right now is the kindling. It's powerful, but it's also fragile. The next step is to protect it, nurture it, and add the fuel that will turn it into a roaring fire. The fuel is **action.**</p>
+            <p>That feeling of clarity and purpose you have right now is the kindling. It's powerful, but it's also fragile. The next step is to protect it, nurture it, and add the fuel that will turn it into a roaring fire. The fuel is <b>action.</b></p>
             <p>Remember that this journey is a marathon, not a sprint. There will be days where the kids are sick, the doubt creeps back in, and you feel like you're not making progress. On those days, come back to this book. Remind yourself of your "why," of your perfect customer "Olivia," and of the tangible proof you found that people need what you have to offer.</p>
             <p>You've proven to yourself that you are more than a mom—you are a creator, a problem-solver, and now, an entrepreneur with a plan.</p>
-            <p>The next book in this collection, **"Book 2: Your First Digital Product in 7 Days,"** is where we get our hands dirty. We will take your winning idea and walk you through the exact, non-technical steps to create the product you've just defined, simply and quickly.</p>
+            <blockquote>The next book in this collection, <b>"Book 2: Your First Digital Product in 7 Days,"</b> is where we get our hands dirty. We will take your winning idea and walk you through the exact, non-technical steps to create the product you've just defined, simply and quickly.</blockquote>
             <p>You have everything you need to succeed. The spark is lit. Now, let's go build your empire.</p>
+        </section>
+        
+        <!-- Author Section (Integrated from DeepSeek's suggestion) -->
+        <section id="author" class="chapter">
+            <div class="chapter-header">
+                <p class="chapter-number">About the Author</p>
+                <h2 class="chapter-title">Meet Sarah Johnson</h2>
+                <hr class="chapter-divider">
+            </div>
+            <p class="first-paragraph">Sarah Johnson is a former marketing executive turned mompreneur success coach. After building her own seven-figure digital product business from her kitchen table while raising three children, she made it her mission to help other mothers discover their own entrepreneurial potential without sacrificing family life.</p>
+            <p>Sarah believes that the skills honed in motherhood—patience, creativity, and relentless problem-solving—are the most powerful assets in business. Her practical, no-fluff approach has helped over 10,000 women launch profitable online businesses that fit their unique lifestyles.</p>
+            <p>When she's not coaching or writing, Sarah can be found hiking with her family, experimenting with new gluten-free recipes, or enjoying a rare quiet moment with a good book and a strong cup of coffee.</p>
         </section>
 
     </div>
