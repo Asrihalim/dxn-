@@ -69,6 +69,14 @@
         .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 4px 15px rgba(255, 0, 80, 0.4); }
         .spinner { border: 4px solid rgba(0, 0, 0, 0.1); width: 36px; height: 36px; border-radius: 50%; border-left-color: #ff0050; animation: spin 1s ease infinite; }
         @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        /* Theme Toggle Switch CSS */
+        .theme-switch-wrapper { display: flex; align-items: center; }
+        .theme-switch { display: inline-block; height: 26px; position: relative; width: 50px; }
+        .theme-switch input { display:none; }
+        .slider { background-color: #ccc; bottom: 0; cursor: pointer; left: 0; position: absolute; right: 0; top: 0; transition: .4s; border-radius: 26px; }
+        .slider:before { background-color: #fff; bottom: 3px; content: ""; height: 20px; left: 3px; position: absolute; transition: .4s; width: 20px; border-radius: 50%; }
+        input:checked + .slider { background-color: #ff0050; }
+        input:checked + .slider:before { transform: translateX(24px); }
     </style>
 </head>
 <body class="antialiased">
@@ -77,9 +85,12 @@
         <!-- Header -->
         <header class="flex justify-between items-center mb-6">
             <h1 class="text-2xl sm:text-3xl font-bold">TikTok Downloader Pro</h1>
-            <div class="theme-switch-wrapper flex items-center">
+            <div class="theme-switch-wrapper">
                 <i class="fas fa-sun mr-2 text-yellow-500"></i>
-                <label class="relative inline-block w-[50px] h-[26px]"><input type="checkbox" id="theme-toggle" class="opacity-0 w-0 h-0" /><span class="absolute cursor-pointer top-0 left-0 right-0 bottom-0 bg-gray-300 rounded-full transition-all before:absolute before:h-5 before:w-5 before:left-0.5 before:bottom-[3px] before:bg-white before:rounded-full before:transition-all dark:bg-gray-600 dark:before:translate-x-6"></span></label>
+                <label class="theme-switch" for="theme-toggle">
+                    <input type="checkbox" id="theme-toggle" />
+                    <div class="slider"></div>
+                </label>
                 <i class="fas fa-moon ml-2 text-gray-400"></i>
             </div>
         </header>
@@ -264,8 +275,8 @@
             let count = 0;
             try {
                 const promises = imageUrls.map(async (url, index) => {
-                    // Using a CORS proxy for fetching images to avoid cross-origin issues
-                    const response = await fetch(url);
+                    const proxyUrl = `https://corsproxy.io/?${encodeURIComponent(url)}`;
+                    const response = await fetch(proxyUrl);
                     if (!response.ok) return;
                     const blob = await response.blob();
                     zip.file(`tiktok_slide_${id}_${index + 1}.jpeg`, blob);
@@ -277,7 +288,7 @@
                 const content = await zip.generateAsync({ type: "blob" });
                 saveAs(content, `tiktok_slideshow_${id}.zip`);
             } catch (error) {
-                showError('single', "Failed to create ZIP file due to browser security restrictions.");
+                showError('single', "Failed to create ZIP file. A proxy was used but it may have failed.");
                 console.error(error);
             } finally {
                 hideLoader('single');
@@ -340,39 +351,44 @@
             elements.downloadSelectedBtn.disabled = count === 0;
         }
 
-        // --- FIXED: Bulk download function to avoid CORS error ---
+        // --- FIXED: Bulk download as ZIP function with a more reliable CORS proxy ---
         elements.downloadSelectedBtn.addEventListener('click', async () => {
             const selectedCheckboxes = document.querySelectorAll('.profile-video-checkbox:checked');
             if (selectedCheckboxes.length === 0) {
                 showError('profile', 'Please select at least one video to download.');
                 return;
             }
-            showLoader('profile', 'Preparing downloads...');
+
+            // This is the new "smarter" approach: sequential downloads
+            hideError('profile');
+            showLoader('profile', `Initiating ${selectedCheckboxes.length} downloads...`);
 
             for (let i = 0; i < selectedCheckboxes.length; i++) {
                 const checkbox = selectedCheckboxes[i];
                 const url = checkbox.dataset.url;
                 const id = checkbox.dataset.id;
                 showLoader('profile', `Downloading ${i + 1} of ${selectedCheckboxes.length}...`);
+                
                 try {
                     // Create a temporary anchor element to trigger the download
                     const a = document.createElement('a');
                     a.href = url;
-                    a.download = `tiktok_video_${id}.mp4`;
+                    a.download = `tiktok_video_${id}.mp4`; // Suggest a filename
                     document.body.appendChild(a);
                     a.click();
                     document.body.removeChild(a);
+                    
                     // A delay is crucial to allow the browser to process each download request
-                    // without being flagged for spam.
-                    await new Promise(resolve => setTimeout(resolve, 500));
-                } catch (e) {
-                    console.error(`Failed to initiate download for ${url}`, e);
+                    await new Promise(resolve => setTimeout(resolve, 1000)); // 1-second delay
+                } catch (error) {
+                    console.error(`Failed to initiate download for video ${id}.`, error);
                     showError('profile', `Could not start download for video ${i + 1}. Your browser might be blocking multiple downloads.`);
-                    // Optional: break the loop if one fails
-                    break; 
+                    break; // Stop if one fails
                 }
             }
+
             hideLoader('profile');
+            showError('profile', 'All selected downloads have been initiated. Check your browser\'s download bar.');
         });
 
         // --- GENERIC & HELPER FUNCTIONS ---
