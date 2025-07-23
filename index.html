@@ -119,20 +119,20 @@
                     <span class="slider"></span>
                 </label>
             </div>
-            <h1 class="text-3xl sm:text-5xl font-extrabold">TikTok Video Downloader Without Watermark</h1>
-            <p class="mt-4 text-lg text-muted-color max-w-2xl mx-auto">Download any TikTok video, slideshow, or audio in seconds. Our free tool lets you save content in high quality, watermark-free. Just paste the link, click download, and enjoy.</p>
+            <h1 class="text-3xl md:text-5xl font-extrabold">TikTok Video Downloader Without Watermark</h1>
+            <p class="mt-4 text-base sm:text-lg text-muted-color max-w-2xl mx-auto">Download any TikTok video, slideshow, or audio in seconds. Our free tool lets you save content in high quality, watermark-free. Just paste the link, click download, and enjoy.</p>
         </header>
 
         <!-- Downloader Card -->
-        <section class="main-container p-6 sm:p-8 rounded-2xl animate-on-load" style="animation-delay: 0.1s;">
+        <section class="main-container p-4 sm:p-8 rounded-2xl animate-on-load" style="animation-delay: 0.1s;">
             <!-- Tabs -->
             <div class="border-b border-[var(--border-color)] mb-6">
-                <nav class="flex -mb-px space-x-6" aria-label="Tabs">
-                    <button class="tab-btn active whitespace-nowrap py-4 px-1 border-b-2 font-medium text-lg" data-tab="single-post">
+                <nav class="flex -mb-px space-x-4 sm:space-x-6" aria-label="Tabs">
+                    <button class="tab-btn active whitespace-nowrap py-3 sm:py-4 px-1 border-b-2 font-medium text-base sm:text-lg" data-tab="single-post">
                         <i class="fas fa-link mr-2"></i>Single Post
                     </button>
-                    <button class="tab-btn whitespace-nowrap py-4 px-1 border-b-2 font-medium text-lg border-transparent text-gray-500 hover:text-gray-700 dark:hover:text-gray-300" data-tab="profile">
-                        <i class="fas fa-user mr-2"></i>Profile Downloader
+                    <button class="tab-btn whitespace-nowrap py-3 sm:py-4 px-1 border-b-2 font-medium text-base sm:text-lg border-transparent text-gray-500 hover:text-gray-700 dark:hover:text-gray-300" data-tab="profile">
+                        <i class="fas fa-user mr-2"></i>Profile
                     </button>
                 </nav>
             </div>
@@ -141,13 +141,13 @@
             <div id="single-post" class="tab-content active">
                 <div class="relative mb-4">
                     <i class="fa-solid fa-link absolute top-1/2 -translate-y-1/2 left-4 text-gray-400"></i>
-                    <input id="single-url" type="text" placeholder="Paste TikTok link here..." aria-label="Single TikTok Post Link" class="w-full pl-12 pr-24 py-3 text-lg rounded-lg bg-[var(--input-bg-color)] border-2 border-transparent focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <input id="single-url" type="text" placeholder="Paste TikTok link here..." aria-label="Single TikTok Post Link" class="w-full pl-10 pr-20 sm:pl-12 sm:pr-24 py-3 text-base sm:text-lg rounded-lg bg-[var(--input-bg-color)] border-2 border-transparent focus:outline-none focus:ring-2 focus:ring-blue-500">
                     <div class="absolute top-1/2 -translate-y-1/2 right-2 flex gap-1">
                         <button id="paste-btn-single" aria-label="Paste from clipboard" class="px-3 py-1 bg-gray-300 dark:bg-gray-600 text-sm rounded hover:bg-gray-400 dark:hover:bg-gray-500 transition" title="Paste"><i class="fa-solid fa-paste"></i></button>
                         <button id="clear-btn-single" aria-label="Clear input" class="px-3 py-1 bg-gray-300 dark:bg-gray-600 text-sm rounded hover:bg-gray-400 dark:hover:bg-gray-500 transition" title="Clear"><i class="fa-solid fa-times"></i></button>
                     </div>
                 </div>
-                <button id="download-btn-single" class="btn-primary w-full text-white font-bold py-3 px-6 rounded-lg shadow-md text-lg">Download Now</button>
+                <button id="download-btn-single" class="btn-primary w-full text-white font-bold py-3 px-6 rounded-lg shadow-md text-base sm:text-lg">Download Now</button>
                 <div id="loader-single" class="hidden flex justify-center items-center mt-6"><div class="spinner"></div><p id="loader-text-single" class="ml-4">Processing...</p></div>
                 <div id="error-single" class="hidden mt-6 p-4 bg-red-100 text-red-700 border border-red-300 rounded-lg text-center"></div>
                 <div id="results-single" class="mt-8"></div>
@@ -157,15 +157,15 @@
             <div id="profile" class="tab-content">
                 <div class="relative mb-4">
                     <i class="fa-solid fa-user absolute top-1/2 -translate-y-1/2 left-4 text-gray-400"></i>
-                    <input id="profile-url" type="text" placeholder="Paste profile link or username..." aria-label="TikTok Profile Link" class="w-full pl-12 py-3 text-lg rounded-lg bg-[var(--input-bg-color)] border-2 border-transparent focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <input id="profile-url" type="text" placeholder="Paste profile link or username..." aria-label="TikTok Profile Link" class="w-full pl-12 py-3 text-base sm:text-lg rounded-lg bg-[var(--input-bg-color)] border-2 border-transparent focus:outline-none focus:ring-2 focus:ring-blue-500">
                 </div>
-                <button id="fetch-btn-profile" class="btn-primary w-full text-white font-bold py-3 px-6 rounded-lg shadow-md text-lg">Fetch Profile's Videos</button>
+                <button id="fetch-btn-profile" class="btn-primary w-full text-white font-bold py-3 px-6 rounded-lg shadow-md text-base sm:text-lg">Fetch Profile's Videos</button>
                 <div id="loader-profile" class="hidden flex justify-center items-center mt-6"><div class="spinner"></div><p id="loader-text-profile" class="ml-4">Finding those awesome videos...</p></div>
                 <div id="error-profile" class="hidden mt-6 p-4 bg-red-100 text-red-700 border border-red-300 rounded-lg text-center"></div>
                 <div id="results-profile" class="mt-8">
-                    <div id="profile-controls" class="hidden items-center justify-between mb-4">
+                    <div id="profile-controls" class="hidden flex flex-col sm:flex-row items-center justify-between mb-4 gap-4">
                         <button id="select-all-btn" class="text-sm font-medium text-blue-500 hover:underline">Select All</button>
-                        <button id="download-selected-btn" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-lg transition disabled:opacity-50" disabled><i class="fas fa-file-archive mr-2"></i>Download as ZIP (<span id="selected-count">0</span>)</button>
+                        <button id="download-selected-btn" class="w-full sm:w-auto bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-lg transition disabled:opacity-50" disabled><i class="fas fa-file-archive mr-2"></i>Download as ZIP (<span id="selected-count">0</span>)</button>
                     </div>
                     <div id="profile-videos-grid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3"></div>
                     <button id="load-more-btn" class="hidden mt-6 w-full bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 font-bold py-3 px-6 rounded-lg">Load More</button>
@@ -233,7 +233,7 @@
         <section id="history-section" class="mt-12 animate-on-load" style="animation-delay: 0.4s;"><h2 class="text-2xl font-bold mb-4">Download History</h2><div id="history-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"><p id="no-history" class="text-muted-color col-span-full text-center py-4"><i class="fas fa-history text-4xl mb-2 text-gray-400"></i><br>Your download history will appear here.</p></div></section>
     </main>
     <footer class="text-center p-6 mt-6 text-muted-color animate-on-load" style="animation-delay: 0.5s;">
-        <div class="flex justify-center flex-wrap gap-4 sm:gap-6 mb-4 text-sm">
+        <div class="flex justify-center flex-wrap gap-x-4 gap-y-2 sm:gap-x-6 mb-4 text-sm">
             <a href="privacy.html" class="hover:text-blue-500 transition">Privacy Policy</a>
             <a href="terms.html" class="hover:text-blue-500 transition">Terms of Service</a>
             <a href="dmca.html" class="hover:text-blue-500 transition">DMCA</a>
