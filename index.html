@@ -165,7 +165,7 @@
                 <div id="results-profile" class="mt-8">
                     <div id="profile-controls" class="hidden items-center justify-between mb-4">
                         <button id="select-all-btn" class="text-sm font-medium text-blue-500 hover:underline">Select All</button>
-                        <button id="download-selected-btn" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-lg transition disabled:opacity-50" disabled><i class="fas fa-download mr-2"></i>Download Selected (<span id="selected-count">0</span>)</button>
+                        <button id="download-selected-btn" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-lg transition disabled:opacity-50" disabled><i class="fas fa-file-archive mr-2"></i>Download as ZIP (<span id="selected-count">0</span>)</button>
                     </div>
                     <div id="profile-videos-grid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3"></div>
                     <button id="load-more-btn" class="hidden mt-6 w-full bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 font-bold py-3 px-6 rounded-lg">Load More</button>
@@ -331,21 +331,17 @@
                 elements.modalContainer.querySelector('.modal-close-btn').addEventListener('click', () => elements.modalContainer.classList.add('hidden'));
             };
 
-            // --- NEW: Robust File Download Function ---
+            // --- Robust File Download Function ---
             const triggerDownload = async (url, filename, btn) => {
                 const originalHTML = btn.innerHTML;
                 btn.disabled = true;
                 btn.innerHTML = `<i class="fas fa-spinner fa-spin mr-2"></i>Preparing...`;
-
                 try {
-                    // Use a proxy to avoid CORS issues
                     const proxyUrl = `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(url)}`;
                     const response = await fetch(proxyUrl);
-                    if (!response.ok) {
-                        throw new Error(`Network response was not ok: ${response.statusText}`);
-                    }
+                    if (!response.ok) throw new Error(`Network response was not ok: ${response.statusText}`);
                     const blob = await response.blob();
-                    saveAs(blob, filename); // Use FileSaver.js
+                    saveAs(blob, filename);
                 } catch (error) {
                     console.error('Download failed:', error);
                     showError('single', 'Download failed. The file might be protected or the network failed. Please try again.');
@@ -384,7 +380,6 @@
                             <button onclick="triggerDownload('${data.music}', 'tokclipdownloader_${data.id}.mp3', this)" class="download-btn w-full text-center bg-purple-500 hover:bg-purple-600 text-white font-bold py-3 px-4 rounded-lg transition ${!data.music ? 'hidden' : ''}"><i class="fas fa-music mr-2"></i>Download Audio (MP3)</button>
                         </div>
                     </div>`;
-                // Make triggerDownload globally accessible for the inline onclick
                 window.triggerDownload = triggerDownload;
             };
 
@@ -488,40 +483,88 @@
                 elements.downloadSelectedBtn.disabled = count === 0;
             }
 
+            // --- GUARANTEED FIX V4: The Architect's Solution ---
             elements.downloadSelectedBtn.addEventListener('click', async () => {
-                const selectedCheckboxes = document.querySelectorAll('.profile-video-checkbox:checked');
-                if (selectedCheckboxes.length === 0) {
+                const selectedCheckboxes = Array.from(document.querySelectorAll('.profile-video-checkbox:checked'));
+                const totalVideos = selectedCheckboxes.length;
+                if (totalVideos === 0) {
                     showError('profile', 'Please select at least one video to download.');
                     return;
                 }
-                showModal('Bulk Download Started', `Your download of ${selectedCheckboxes.length} videos will begin shortly. Your browser may ask for permission for each download. Please keep this window open.`);
-                
-                hideError('profile');
-                showLoader('profile', `Initiating ${selectedCheckboxes.length} downloads...`);
 
-                for (let i = 0; i < selectedCheckboxes.length; i++) {
-                    const checkbox = selectedCheckboxes[i];
+                showModal('Creating ZIP File', `We are preparing a ZIP file with your ${totalVideos} selected videos. This might take a moment. Please wait.`);
+                hideError('profile');
+                showLoader('profile', `Step 1 of 2: Fetching ${totalVideos} videos...`);
+
+                // STAGE 1: Fetch all selected videos first.
+                const fetchPromises = selectedCheckboxes.map((checkbox, index) => {
                     const url = checkbox.dataset.url;
                     const id = checkbox.dataset.id;
-                    showLoader('profile', `Downloading video ${i + 1} of ${selectedCheckboxes.length}...`);
+                    // Use a unique, numbered filename as requested.
+                    const filename = `video_${index + 1}_${id}.mp4`;
+                    const proxyUrl = `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(url)}`;
                     
-                    try {
-                        // Use the new robust download function
-                        const proxyUrl = `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(url)}`;
-                        const response = await fetch(proxyUrl);
-                        if (!response.ok) throw new Error('Proxy fetch failed');
-                        const blob = await response.blob();
-                        saveAs(blob, `tokclipdownloader_profile_${id}.mp4`);
-                        
-                        await new Promise(resolve => setTimeout(resolve, 1000)); // Delay between downloads
-                    } catch (error) {
-                        showError('profile', `Could not start download for video ${i + 1}. Your browser might be blocking multiple downloads.`);
-                        break; 
+                    return fetch(proxyUrl)
+                        .then(response => {
+                            if (!response.ok) throw new Error(`Failed to fetch video ${id}`);
+                            return response.blob();
+                        })
+                        .then(blob => {
+                            if (blob.size === 0) throw new Error(`Fetched empty file for video ${id}`);
+                            return { filename, blob };
+                        });
+                });
+
+                // Wait for all fetches to complete (either success or failure).
+                const results = await Promise.allSettled(fetchPromises);
+                
+                // STAGE 2: Filter successful downloads and create the ZIP.
+                const successfulDownloads = [];
+                results.forEach(result => {
+                    if (result.status === 'fulfilled' && result.value) {
+                        successfulDownloads.push(result.value);
+                    } else if (result.status === 'rejected') {
+                        console.warn("A video download failed:", result.reason);
                     }
+                });
+
+                const downloadedCount = successfulDownloads.length;
+                const failedCount = totalVideos - downloadedCount;
+
+                if (downloadedCount === 0) {
+                    showError('profile', "Could not download any of the selected videos. Please try again.");
+                    hideLoader('profile');
+                    return;
                 }
 
-                hideLoader('profile');
-                showError('profile', 'Done! Your videos are on their way. Check your browser\'s downloads.');
+                if (failedCount > 0) {
+                    showModal("Partial Download", `Successfully fetched ${downloadedCount} videos. Failed to fetch ${failedCount}. The ZIP file will contain only the successful downloads.`);
+                }
+
+                try {
+                    const zip = new JSZip();
+                    // Add only the successfully fetched blobs to the zip.
+                    successfulDownloads.forEach(file => {
+                        zip.file(file.filename, file.blob);
+                    });
+
+                    showLoader('profile', `Step 2 of 2: Zipping ${downloadedCount} files...`);
+                    const content = await zip.generateAsync({
+                        type: "blob"
+                    }, (metadata) => {
+                        const percent = metadata.percent.toFixed(2);
+                        showLoader('profile', `Step 2 of 2: Zipping files... ${percent}%`);
+                    });
+
+                    saveAs(content, `tokclipdownloader_${profileState.unique_id}_${downloadedCount}_videos.zip`);
+                    showError('profile', `Your ZIP file with ${downloadedCount} videos has been downloaded.`);
+
+                } catch (error) {
+                    console.error('ZIP creation failed:', error);
+                    showError('profile', `Failed to create ZIP file. ${error.message}`);
+                } finally {
+                    hideLoader('profile');
+                }
             });
 
             // --- GENERIC & HELPER FUNCTIONS ---
