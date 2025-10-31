@@ -128,6 +128,18 @@
         .product-gallery .section-title {
             font-size: 1.8em;
             margin-bottom: 20px;
+            position: relative;
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 70px;
+            height: 4px;
+            background-color: var(--primary-color);
+            border-radius: 2px;
         }
         .gallery-grid {
             display: grid;
@@ -272,66 +284,6 @@
             font-size: 0.9em;
         }
 
-        /* --- Order Form Section --- */
-        .order-form-section {
-            background-color: #fff;
-            padding: 30px 15px;
-            border-radius: var(--border-radius);
-            box-shadow: var(--box-shadow-light);
-            margin-bottom: 20px;
-        }
-        .order-form-section .section-title {
-            font-size: 1.8em;
-            margin-bottom: 25px;
-        }
-        .order-form {
-            max-width: 400px; /* لضمان تركيز الفورم في المنتصف */
-            margin: 0 auto;
-        }
-        .form-group {
-            margin-bottom: 20px;
-        }
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-size: 1.1em;
-            color: var(--heading-color);
-            font-weight: 700;
-        }
-        .form-group input[type="text"],
-        .form-group input[type="tel"] {
-            width: calc(100% - 24px); /* خصم البادينج من العرض الكلي */
-            padding: 12px 12px;
-            border: 1px solid #ced4da;
-            border-radius: var(--border-radius);
-            font-size: 1em;
-            box-sizing: border-box;
-            transition: border-color 0.3s ease, box-shadow 0.3s ease;
-        }
-        .form-group input[type="text"]:focus,
-        .form-group input[type="tel"]:focus {
-            border-color: var(--primary-color);
-            outline: none;
-            box-shadow: 0 0 8px rgba(40, 167, 69, 0.25);
-        }
-        .form-group .submit-button {
-            width: 100%;
-            background-color: var(--primary-color);
-            color: #fff;
-            padding: 18px;
-            font-size: 1.5em;
-            font-weight: 900;
-            border: none;
-            border-radius: var(--border-radius);
-            cursor: pointer;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-            box-shadow: 0 5px 15px rgba(0, 128, 0, 0.3);
-        }
-        .form-group .submit-button:hover {
-            background-color: #218838;
-            transform: translateY(-3px);
-        }
-
         /* --- Guarantees/Footer CTA --- */
         .guarantees-section {
             background-color: #eaf7ed; /* خلفية خضراء فاتحة */
@@ -386,7 +338,141 @@
             margin: 0 0 5px;
         }
 
-        /* Responsive adjustments for larger screens (if needed, but mobile-first) */
+        /* --- Fixed Order Button (الزر الثابت في الأسفل) --- */
+        .fixed-order-button {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: var(--primary-color); /* لون أخضر جذاب */
+            color: #fff;
+            text-align: center;
+            padding: 15px 0;
+            font-size: 1.6em;
+            font-weight: 900;
+            text-decoration: none;
+            box-shadow: 0 -4px 15px rgba(0, 128, 0, 0.3);
+            z-index: 1001; /* أعلى من كل شيء آخر */
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .fixed-order-button:hover {
+            background-color: #218838;
+        }
+        .fixed-order-button i {
+            margin-right: 10px;
+        }
+
+        /* --- Order Modal (النافذة المنبثقة لنموذج الطلب) --- */
+        .order-modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7); /* خلفية معتمة */
+            display: none; /* مخفية افتراضياً */
+            justify-content: center;
+            align-items: flex-end; /* تظهر من الأسفل */
+            z-index: 1002;
+        }
+        .order-modal-content {
+            background-color: #fff;
+            width: 100%;
+            max-width: 600px;
+            border-top-left-radius: var(--border-radius);
+            border-top-right-radius: var(--border-radius);
+            padding: 25px;
+            box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.2);
+            transform: translateY(100%); /* مخفية خارج الشاشة في البداية */
+            transition: transform 0.4s ease-out; /* تأثير الظهور */
+        }
+        .order-modal-overlay.active .order-modal-content {
+            transform: translateY(0); /* تظهر لأعلى */
+        }
+        .order-modal-overlay.active {
+            display: flex; /* لعرضها */
+        }
+
+        .modal-close-button {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            background: none;
+            border: none;
+            font-size: 1.8em;
+            color: #555;
+            cursor: pointer;
+        }
+        .order-modal-content h3 {
+            font-size: 1.8em;
+            color: var(--heading-color);
+            text-align: center;
+            margin-bottom: 25px;
+            position: relative;
+        }
+        .order-modal-content h3::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background-color: var(--primary-color);
+            border-radius: 1.5px;
+        }
+
+        /* --- Form Styling inside Modal (نفس تنسيق الفورم السابق) --- */
+        .order-form {
+            max-width: 400px; /* لضمان تركيز الفورم في المنتصف */
+            margin: 0 auto;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 1.1em;
+            color: var(--heading-color);
+            font-weight: 700;
+        }
+        .form-group input[type="text"],
+        .form-group input[type="tel"] {
+            width: calc(100% - 24px); /* خصم البادينج من العرض الكلي */
+            padding: 12px 12px;
+            border: 1px solid #ced4da;
+            border-radius: var(--border-radius);
+            font-size: 1em;
+            box-sizing: border-box;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        .form-group input[type="text"]:focus,
+        .form-group input[type="tel"]:focus {
+            border-color: var(--primary-color);
+            outline: none;
+            box-shadow: 0 0 8px rgba(40, 167, 69, 0.25);
+        }
+        .form-group .submit-button {
+            width: 100%;
+            background-color: var(--primary-color);
+            color: #fff;
+            padding: 18px;
+            font-size: 1.5em;
+            font-weight: 900;
+            border: none;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 128, 0, 0.3);
+        }
+        .form-group .submit-button:hover {
+            background-color: #218838;
+            transform: translateY(-3px);
+        }
+
+        /* --- Responsive adjustments (لشاشات أكبر قليلاً ولكن مع الحفاظ على تصميم الهاتف أولاً) --- */
         @media (min-width: 600px) {
             .hero-section h1 {
                 font-size: 2.8em;
@@ -404,6 +490,14 @@
                 max-width: 80%;
                 margin-left: auto;
                 margin-right: auto;
+            }
+            .order-modal-content {
+                border-radius: var(--border-radius); /* زوايا دائرية بالكامل */
+                max-height: 80vh; /* لتحديد أقصى ارتفاع */
+                overflow-y: auto; /* لإضافة سكرول إذا كان المحتوى طويلاً */
+            }
+            .order-modal-overlay.active {
+                align-items: center; /* تظهر في المنتصف للشاشات الأكبر */
             }
         }
     </style>
@@ -428,9 +522,9 @@
                 <div class="hero-main-image">
                     <img src="https://ecoshopin.store/cdn/shop/files/Screenshot_2025-10-30_195416.png?v=1761863080&width=990" alt="منظم لوحة كهرباء خشبي أنيق مع مفاتيح وديكورات">
                 </div>
-                <a href="#order-form-section" class="cta-button">
+                <button class="cta-button" onclick="openOrderModal()">
                     <i class="fas fa-bolt"></i> نعم! أريد حلاً لمشكلتي الآن!
-                </a>
+                </button>
             </div>
         </section>
 
@@ -495,9 +589,9 @@
                 <h2 class="section-title">لا تفوت الفرصة! خصم لا يتكرر!</h2>
                 <p class="old-price">الثمن الأصلي: <del>599 درهم</del></p>
                 <p class="new-price">احصل عليه الآن بـ <span></span>399 درهم فقط!</p>
-                <a href="#order-form-section" class="cta-button">
+                <button class="cta-button" onclick="openOrderModal()">
                     <i class="fas fa-shopping-cart"></i> اطلب الآن والدفع عند الاستلام
-                </a>
+                </button>
             </div>
         </section>
 
@@ -518,31 +612,6 @@
                     <p>"منتج رائع وعملي، أخفى لوحة الكهرباء القبيحة، وأعطى للمدخل لمسة جميلة. الجودة ممتازة وسهل التركيب."</p>
                     <div class="customer-name">- يوسف، <span>الرباط</span></div>
                 </div>
-            </div>
-        </section>
-
-        <section id="order-form-section" class="order-form-section">
-            <div class="container">
-                <h2 class="section-title">أكمل بياناتك واستلم منتجك لباب بيتك!</h2>
-                <form class="order-form">
-                    <div class="form-group">
-                        <label for="fullName"><i class="fas fa-user"></i> الاسم الكامل:</label>
-                        <input type="text" id="fullName" name="fullName" required placeholder="أدخل اسمك الكامل هنا">
-                    </div>
-                    <div class="form-group">
-                        <label for="city"><i class="fas fa-city"></i> المدينة:</label>
-                        <input type="text" id="city" name="city" required placeholder="مثال: الدار البيضاء، مراكش، طنجة">
-                    </div>
-                    <div class="form-group">
-                        <label for="phone"><i class="fas fa-phone-alt"></i> رقم الهاتف:</label>
-                        <input type="tel" id="phone" name="phone" required placeholder="أدخل رقم هاتفك (مثال: 06XXXXXXXX)">
-                    </div>
-                    <div class="form-group">
-                        <button type="submit" class="submit-button">
-                            <i class="fas fa-check-circle"></i> تأكيد الطلب والدفع عند الاستلام
-                        </button>
-                    </div>
-                </form>
             </div>
         </section>
 
@@ -576,6 +645,56 @@
             <p>للاستفسارات، تواصل معنا: <a href="tel:0612345678" style="color: #dee2e6; text-decoration: none;">0612345678</a></p>
         </div>
     </footer>
+
+    <!-- Fixed Order Button -->
+    <button class="fixed-order-button" onclick="openOrderModal()">
+        <i class="fas fa-shopping-cart"></i> اطلب الآن - الدفع عند الاستلام
+    </button>
+
+    <!-- Order Modal (Pop-up Form) -->
+    <div id="orderModal" class="order-modal-overlay" onclick="closeOrderModal(event)">
+        <div class="order-modal-content" onclick="event.stopPropagation()">
+            <button class="modal-close-button" onclick="closeOrderModal()">&times;</button>
+            <h3>أكمل بياناتك واستلم منتجك لباب بيتك!</h3>
+            <form class="order-form">
+                <div class="form-group">
+                    <label for="modalFullName"><i class="fas fa-user"></i> الاسم الكامل:</label>
+                    <input type="text" id="modalFullName" name="fullName" required placeholder="أدخل اسمك الكامل هنا">
+                </div>
+                <div class="form-group">
+                    <label for="modalCity"><i class="fas fa-city"></i> المدينة:</label>
+                    <input type="text" id="modalCity" name="city" required placeholder="مثال: الدار البيضاء، مراكش، طنجة">
+                </div>
+                <div class="form-group">
+                    <label for="modalPhone"><i class="fas fa-phone-alt"></i> رقم الهاتف:</label>
+                    <input type="tel" id="modalPhone" name="phone" required placeholder="أدخل رقم هاتفك (مثال: 06XXXXXXXX)">
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="submit-button">
+                        <i class="fas fa-check-circle"></i> تأكيد الطلب والدفع عند الاستلام
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function openOrderModal() {
+            document.getElementById('orderModal').classList.add('active');
+            document.body.style.overflow = 'hidden'; // منع التمرير في الخلفية
+        }
+
+        function closeOrderModal(event) {
+            // أغلق المودال إذا تم النقر على الخلفية المعتمة أو زر الإغلاق
+            if (event && event.target.id === 'orderModal') {
+                document.getElementById('orderModal').classList.remove('active');
+                document.body.style.overflow = ''; // استعادة التمرير في الخلفية
+            } else if (!event) { // إذا تم استدعاؤها من زر الإغلاق مباشرة
+                document.getElementById('orderModal').classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        }
+    </script>
 
 </body>
 </html>
