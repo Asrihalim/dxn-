@@ -1,626 +1,581 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- SEO Meta Tags -->
-    <title>Download TikTok Videos Without Watermark - HD Quality</title>
-    <meta name="description" content="The best tool to download any TikTok video, slideshow, or audio in seconds, watermark-free. Our free TikTok downloader lets you save content in high quality.">
-    <meta name="keywords" content="tiktok downloader, download tiktok video, tiktok video downloader, save tiktok, tiktok mp4, tiktok mp3, no watermark, download from tiktok">
-    <meta name="author" content="TokClipDownloader.online">
-    <link rel="canonical" href="https://tokclipdownloader.online/">
-    
-    <!-- FAVICON -->
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><defs><linearGradient id=%22g%22 x1=%220%25%22 y1=%220%25%22 x2=%22100%25%22 y2=%22100%25%22><stop offset=%220%25%22 style=%22stop-color:%233b82f6;%22 /><stop offset=%22100%25%22 style=%22stop-color:%236366f1;%22 /></linearGradient></defs><path fill=%22url(%23g)%22 d=%22M50,5A45,45,0,1,0,95,50,45,45,0,0,0,50,5ZM67.5,47.5,45,63.75a2.5,2.5,0,0,1-4-2V38.25a2.5,2.5,0,0,1,4-2L67.5,52.5A2.5,2.5,0,0,1,67.5,47.5Z%22 transform=%22rotate(90 50 50)%22/></svg>">
-
-    <!-- Open Graph & Twitter Cards -->
-    <meta property="og:title" content="Download TikTok Videos Without Watermark - HD Quality">
-    <meta property="og:description" content="The best tool to download any TikTok video, slideshow, or audio in seconds, watermark-free.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://tokclipdownloader.online/">
-    <meta property="og:image" content="https://tokclipdownloader.online/og-image.jpg"> <!-- IMPORTANT: Replace with an actual image URL -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Download TikTok Videos Without Watermark - HD Quality">
-    <meta name="twitter:description" content="The best tool to download any TikTok video, slideshow, or audio in seconds, watermark-free.">
-    <meta name="twitter:image" content="https://tokclipdownloader.online/twitter-image.jpg"> <!-- IMPORTANT: Replace with an actual image URL -->
-
-    <!-- Structured Data (Schema.org) -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "SoftwareApplication",
-      "name": "TikTok Video Downloader Without Watermark",
-      "applicationCategory": "MultimediaApplication",
-      "operatingSystem": "Any (Web-based)",
-      "description": "A free web tool to download any content from TikTok, including videos without watermark, photo slideshows as individual images or a ZIP file, stories, and MP3 audio tracks.",
-      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-      "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.9", "reviewCount": "2150" },
-      "author": { "@type": "Organization", "name": "TokClipDownloader" }
-    }
-    </script>
-
-    <!-- Libraries -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.0/FileSaver.min.js"></script>
-    
-    <!-- Google Fonts: Inter -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    
+    <title>⚡️ حلّ سحري لفوضى الأسلاك: منظم لوحة الكهرباء الخشبي الأنيق ⚡️</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         :root {
-            --bg-color: #f7f7f7; --card-bg-color: #ffffff; --text-color: #1f2937;
-            --text-muted-color: #6b7280; --input-bg-color: #e5e7eb; --border-color: #e5e7eb;
-            --prose-color: #374151; --brand-gradient: linear-gradient(90deg, #3b82f6, #6366f1);
+            --primary-color: #28a745; /* أخضر قوي للعمليات الرئيسية */
+            --secondary-color: #f8f9fa; /* خلفية فاتحة */
+            --text-color: #343a40; /* لون نص داكن */
+            --heading-color: #212529; /* لون عناوين أغمق */
+            --accent-color: #ffc107; /* لون مميز للبروز */
+            --danger-color: #dc3545; /* لون للأخطاء أو التنبيهات */
+            --border-radius: 10px;
+            --box-shadow-light: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --box-shadow-strong: 0 8px 25px rgba(0, 0, 0, 0.15);
         }
-        html.dark {
-            --bg-color: #111827; --card-bg-color: #1f2937; --text-color: #f9fafb;
-            --text-muted-color: #9ca3af; --input-bg-color: #374151; --border-color: #374151;
-            --prose-color: #d1d5db;
-        }
-        body { 
-            font-family: 'Inter', sans-serif; 
-            background-color: var(--bg-color); 
-            color: var(--text-color); 
-            transition: background-color 0.3s, color 0.3s;
-        }
-        .main-container, .history-item, .modal-content { 
-            background-color: var(--card-bg-color); 
-            transition: background-color 0.3s, box-shadow 0.3s;
-            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 10px 10px -5px rgba(0, 0, 0, 0.02);
-        }
-        .tab-btn { transition: color 0.2s, border-color 0.2s; }
-        .tab-btn.active { color: #3b82f6; border-color: #3b82f6; }
-        html.dark .tab-btn.active { color: #60a5fa; border-color: #60a5fa; }
-        .tab-content { display: none; }
-        .tab-content.active { display: block; animation: fadeInUp 0.5s ease-in-out; }
-        .btn-primary, .download-btn { background: var(--brand-gradient); transition: all 0.3s ease; }
-        .btn-primary:hover, .download-btn:hover { transform: translateY(-2px); box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4); }
-        .spinner { border: 4px solid rgba(0, 0, 0, 0.1); width: 36px; height: 36px; border-radius: 50%; border-left-color: #3b82f6; animation: spin 1s ease infinite; }
-        
-        /* Animations */
-        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-        @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-        .animate-on-load { opacity: 0; animation: fadeInUp 0.6s ease-out forwards; }
 
-        /* Theme Toggle Switch CSS */
-        .theme-switch { display: inline-block; height: 26px; position: relative; width: 50px; }
-        .theme-switch input { display:none; }
-        .slider { background-color: #ccc; bottom: 0; cursor: pointer; left: 0; position: absolute; right: 0; top: 0; transition: .4s; border-radius: 26px; }
-        .slider:before { background-color: #fff; bottom: 3px; content: ""; height: 20px; left: 3px; position: absolute; transition: .4s; width: 20px; border-radius: 50%; }
-        input:checked + .slider { background-color: #3b82f6; }
-        input:checked + .slider:before { transform: translateX(24px); }
-        
-        /* FAQ Accordion */
-        .faq-item .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; }
-        .faq-item.open .faq-answer { max-height: 200px; }
-        .faq-item.open .faq-icon { transform: rotate(45deg); }
+        body {
+            font-family: 'Cairo', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--secondary-color);
+            color: var(--text-color);
+            line-height: 1.7;
+            overflow-x: hidden; /* لمنع التمرير الأفقي */
+            scroll-behavior: smooth; /* لتحسين تجربة التنقل بين الأقسام */
+        }
+
+        .container {
+            max-width: 600px; /* لضمان تركيز التصميم على الهاتف */
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* --- شريط التخفيض العلوي --- */
+        .discount-bar {
+            background-color: #ff5722; /* لون برتقالي جذاب للإلحاح */
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            font-size: 1.1em;
+            font-weight: 700;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        }
+
+        /* --- Header / Navigation Bar (اسم المتجر) --- */
+        .header-main {
+            background-color: #fff;
+            padding: 15px 0;
+            text-align: center;
+            border-bottom: 1px solid #eee;
+        }
+        .header-main .logo {
+            font-size: 2em;
+            font-weight: 900;
+            color: var(--primary-color);
+            text-decoration: none;
+            display: block;
+        }
+
+        /* --- Hero Section --- */
+        .hero-section {
+            background: linear-gradient(to top, #eaf7ed, #fff); /* تدرج لوني خفيف */
+            padding: 30px 0;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .hero-section h1 {
+            font-size: 2.2em;
+            color: var(--heading-color);
+            margin-bottom: 10px;
+            font-weight: 900;
+            line-height: 1.3;
+        }
+        .hero-section p {
+            font-size: 1.1em;
+            color: var(--text-color);
+            margin-bottom: 25px;
+            padding: 0 10px;
+        }
+        .hero-main-image img {
+            max-width: 90%;
+            height: auto;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow-strong);
+            margin-bottom: 25px;
+        }
+
+        /* --- CTA Button (أساسي) --- */
+        .cta-button {
+            display: block; /* زر يأخذ عرض الشاشة بالكامل */
+            background-color: var(--primary-color);
+            color: #fff;
+            padding: 18px 20px;
+            font-size: 1.6em;
+            font-weight: 900;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            box-shadow: 0 6px 15px rgba(0, 128, 0, 0.4);
+            margin: 0 auto 20px; /* توسيط الزر */
+            width: fit-content; /* حجم الزر حسب المحتوى */
+        }
+        .cta-button:hover {
+            background-color: #218838;
+            transform: translateY(-3px);
+        }
+        .cta-button i {
+            margin-right: 10px;
+        }
+
+        /* --- Product Images Gallery --- */
+        .product-gallery {
+            background-color: #fff;
+            padding: 25px 15px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow-light);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .product-gallery .section-title {
+            font-size: 1.8em;
+            margin-bottom: 20px;
+        }
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: 1fr; /* صورة واحدة في كل صف للهاتف */
+            gap: 15px;
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 280px; /* ارتفاع ثابت للصور */
+            object-fit: cover;
+            border-radius: var(--border-radius);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        .gallery-item .caption {
+            font-size: 1em;
+            color: #666;
+            margin-top: 8px;
+            font-weight: 700;
+        }
+
+        /* --- Features Section --- */
+        .features-section {
+            background-color: #f0fdf2; /* خلفية خضراء فاتحة جداً */
+            padding: 30px 15px;
+            margin-bottom: 20px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow-light);
+        }
+        .features-section .section-title {
+            font-size: 1.8em;
+            margin-bottom: 25px;
+        }
+        .feature-card {
+            background-color: #fff;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: var(--border-radius);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            display: flex; /* لترتيب الأيقونة والنص أفقياً */
+            align-items: center;
+            text-align: right;
+            border-right: 4px solid var(--primary-color);
+        }
+        .feature-card i {
+            font-size: 2.2em;
+            color: var(--primary-color);
+            margin-left: 15px;
+            flex-shrink: 0; /* لمنع الأيقونة من التقلص */
+        }
+        .feature-card-content {
+            flex-grow: 1;
+        }
+        .feature-card h4 {
+            font-size: 1.3em;
+            color: var(--heading-color);
+            margin: 0 0 5px;
+            font-weight: 700;
+        }
+        .feature-card p {
+            font-size: 0.95em;
+            color: #555;
+            margin: 0;
+        }
+
+        /* --- Price & Call to Action Section --- */
+        .price-cta-section {
+            background-color: #fff3cd; /* أصفر بارز للعرض */
+            border: 2px solid var(--accent-color);
+            padding: 30px 15px;
+            text-align: center;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow-light);
+            margin-bottom: 20px;
+        }
+        .price-cta-section .old-price {
+            font-size: 1.5em;
+            color: #999;
+            text-decoration: line-through;
+            margin-bottom: 5px;
+            font-weight: 700;
+        }
+        .price-cta-section .new-price {
+            font-size: 3.5em;
+            color: var(--danger-color); /* لون أحمر للسعر المخفض */
+            font-weight: 900;
+            margin-bottom: 20px;
+            display: block;
+        }
+        .price-cta-section .new-price span {
+            font-size: 0.6em;
+            vertical-align: super;
+        }
+        .price-cta-section .cta-button {
+            background-color: #ff5722; /* زر الشراء بلون مميز */
+            box-shadow: 0 6px 15px rgba(255, 87, 34, 0.4);
+            font-size: 1.5em;
+            padding: 15px 30px;
+        }
+        .price-cta-section .cta-button:hover {
+            background-color: #e64a19;
+        }
+
+        /* --- Testimonials / Customer Reviews --- */
+        .testimonials-section {
+            background-color: #fff;
+            padding: 30px 15px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow-light);
+            margin-bottom: 20px;
+        }
+        .testimonials-section .section-title {
+            font-size: 1.8em;
+            margin-bottom: 25px;
+        }
+        .testimonial-card {
+            background-color: var(--secondary-color);
+            padding: 20px;
+            border-radius: var(--border-radius);
+            margin-bottom: 15px;
+            box-shadow: 0 1px 6px rgba(0,0,0,0.05);
+        }
+        .testimonial-card .stars {
+            color: var(--accent-color);
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+        .testimonial-card p {
+            font-style: italic;
+            color: #444;
+            margin-bottom: 10px;
+            font-size: 1em;
+        }
+        .testimonial-card .customer-name {
+            font-weight: 700;
+            color: var(--heading-color);
+            text-align: left; /* اسم العميل على اليسار */
+            font-size: 0.95em;
+        }
+        .testimonial-card .customer-name span {
+            font-weight: normal;
+            color: #777;
+            font-size: 0.9em;
+        }
+
+        /* --- Order Form Section --- */
+        .order-form-section {
+            background-color: #fff;
+            padding: 30px 15px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow-light);
+            margin-bottom: 20px;
+        }
+        .order-form-section .section-title {
+            font-size: 1.8em;
+            margin-bottom: 25px;
+        }
+        .order-form {
+            max-width: 400px; /* لضمان تركيز الفورم في المنتصف */
+            margin: 0 auto;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 1.1em;
+            color: var(--heading-color);
+            font-weight: 700;
+        }
+        .form-group input[type="text"],
+        .form-group input[type="tel"] {
+            width: calc(100% - 24px); /* خصم البادينج من العرض الكلي */
+            padding: 12px 12px;
+            border: 1px solid #ced4da;
+            border-radius: var(--border-radius);
+            font-size: 1em;
+            box-sizing: border-box;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        .form-group input[type="text"]:focus,
+        .form-group input[type="tel"]:focus {
+            border-color: var(--primary-color);
+            outline: none;
+            box-shadow: 0 0 8px rgba(40, 167, 69, 0.25);
+        }
+        .form-group .submit-button {
+            width: 100%;
+            background-color: var(--primary-color);
+            color: #fff;
+            padding: 18px;
+            font-size: 1.5em;
+            font-weight: 900;
+            border: none;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 128, 0, 0.3);
+        }
+        .form-group .submit-button:hover {
+            background-color: #218838;
+            transform: translateY(-3px);
+        }
+
+        /* --- Guarantees/Footer CTA --- */
+        .guarantees-section {
+            background-color: #eaf7ed; /* خلفية خضراء فاتحة */
+            padding: 30px 15px;
+            text-align: center;
+            margin-bottom: 20px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow-light);
+        }
+        .guarantees-section .section-title {
+            font-size: 1.6em;
+            margin-bottom: 20px;
+        }
+        .guarantees-grid {
+            display: grid;
+            grid-template-columns: 1fr; /* عمود واحد للهاتف */
+            gap: 20px;
+        }
+        .guarantee-item {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: var(--border-radius);
+            box-shadow: 0 1px 6px rgba(0,0,0,0.05);
+            text-align: center;
+        }
+        .guarantee-item i {
+            font-size: 2.5em;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+        .guarantee-item h5 {
+            font-size: 1.2em;
+            color: var(--heading-color);
+            margin: 0 0 8px;
+            font-weight: 700;
+        }
+        .guarantee-item p {
+            font-size: 0.9em;
+            color: #555;
+            margin: 0;
+        }
+
+        /* --- Footer --- */
+        footer {
+            text-align: center;
+            padding: 25px 15px;
+            background-color: var(--heading-color);
+            color: #dee2e6;
+            font-size: 0.9em;
+        }
+        footer p {
+            margin: 0 0 5px;
+        }
+
+        /* Responsive adjustments for larger screens (if needed, but mobile-first) */
+        @media (min-width: 600px) {
+            .hero-section h1 {
+                font-size: 2.8em;
+            }
+            .hero-section p {
+                font-size: 1.3em;
+            }
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* 2 صور في الصف للتابلت */
+            }
+            .features-grid, .guarantees-grid {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* 2 عمود */
+            }
+            .testimonial-card {
+                max-width: 80%;
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
     </style>
 </head>
-<body class="antialiased">
+<body>
 
-    <main class="w-full max-w-4xl mx-auto p-4">
-        <!-- Header -->
-        <header class="text-center mb-8 animate-on-load">
-            <div class="flex items-center justify-between mb-2">
-                <div></div> <!-- Spacer -->
-                <a href="/" aria-label="Homepage">
-                    <svg class="h-12 w-12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <defs><linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#3b82f6;" /><stop offset="100%" style="stop-color:#6366f1;" /></linearGradient></defs>
-                        <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2ZM12.75 8.75C12.75 8.19772 12.3023 7.75 11.75 7.75C11.1977 7.75 10.75 8.19772 10.75 8.75V12.5303L10.0202 11.7995C9.62933 11.4082 9.00007 11.4082 8.6092 11.7995C8.21833 12.1908 8.21833 12.8201 8.6092 13.2114L11.3592 15.9614C11.75 16.3527 12.3793 16.3527 12.7702 15.9614L15.5202 13.2114C15.911 12.8201 15.911 12.1908 15.5202 11.7995C15.1293 11.4082 14.5001 11.4082 14.1092 11.7995L13.25 12.6592V8.75H12.75Z" fill="url(#logoGradient)"/>
-                    </svg>
-                </a>
-                <label class="theme-switch" for="theme-toggle" title="Toggle Dark/Light Mode">
-                    <input type="checkbox" id="theme-toggle">
-                    <span class="slider"></span>
-                </label>
-            </div>
-            <h1 class="text-3xl md:text-5xl font-extrabold">TikTok Video Downloader Without Watermark</h1>
-            <p class="mt-4 text-base sm:text-lg text-muted-color max-w-2xl mx-auto">Download any TikTok video, slideshow, or audio in seconds. Our free tool lets you save content in high quality, watermark-free. Just paste the link, click download, and enjoy.</p>
-        </header>
+    <div class="discount-bar">
+        خصم 30% لفترة محدودة جداً + شحن مجاني! 🚀
+    </div>
 
-        <!-- Downloader Card -->
-        <section class="main-container p-4 sm:p-8 rounded-2xl animate-on-load" style="animation-delay: 0.1s;">
-            <!-- Tabs -->
-            <div class="border-b border-[var(--border-color)] mb-6">
-                <nav class="flex -mb-px space-x-4 sm:space-x-6" aria-label="Tabs">
-                    <button class="tab-btn active whitespace-nowrap py-3 sm:py-4 px-1 border-b-2 font-medium text-base sm:text-lg" data-tab="single-post">
-                        <i class="fas fa-link mr-2"></i>Single Post
-                    </button>
-                    <button class="tab-btn whitespace-nowrap py-3 sm:py-4 px-1 border-b-2 font-medium text-base sm:text-lg border-transparent text-gray-500 hover:text-gray-700 dark:hover:text-gray-300" data-tab="profile">
-                        <i class="fas fa-user mr-2"></i>Profile
-                    </button>
-                </nav>
-            </div>
-
-            <!-- Tab Content: Single Post -->
-            <div id="single-post" class="tab-content active">
-                <div class="relative mb-4">
-                    <i class="fa-solid fa-link absolute top-1/2 -translate-y-1/2 left-4 text-gray-400"></i>
-                    <input id="single-url" type="text" placeholder="Paste TikTok link here..." aria-label="Single TikTok Post Link" class="w-full pl-10 pr-20 sm:pl-12 sm:pr-24 py-3 text-base sm:text-lg rounded-lg bg-[var(--input-bg-color)] border-2 border-transparent focus:outline-none focus:ring-2 focus:ring-blue-500">
-                    <div class="absolute top-1/2 -translate-y-1/2 right-2 flex gap-1">
-                        <button id="paste-btn-single" aria-label="Paste from clipboard" class="px-3 py-1 bg-gray-300 dark:bg-gray-600 text-sm rounded hover:bg-gray-400 dark:hover:bg-gray-500 transition" title="Paste"><i class="fa-solid fa-paste"></i></button>
-                        <button id="clear-btn-single" aria-label="Clear input" class="px-3 py-1 bg-gray-300 dark:bg-gray-600 text-sm rounded hover:bg-gray-400 dark:hover:bg-gray-500 transition" title="Clear"><i class="fa-solid fa-times"></i></button>
-                    </div>
-                </div>
-                <button id="download-btn-single" class="btn-primary w-full text-white font-bold py-3 px-6 rounded-lg shadow-md text-base sm:text-lg">Download Now</button>
-                <div id="loader-single" class="hidden flex justify-center items-center mt-6"><div class="spinner"></div><p id="loader-text-single" class="ml-4">Processing...</p></div>
-                <div id="error-single" class="hidden mt-6 p-4 bg-red-100 text-red-700 border border-red-300 rounded-lg text-center"></div>
-                <div id="results-single" class="mt-8"></div>
-            </div>
-
-            <!-- Tab Content: Profile -->
-            <div id="profile" class="tab-content">
-                <div class="relative mb-4">
-                    <i class="fa-solid fa-user absolute top-1/2 -translate-y-1/2 left-4 text-gray-400"></i>
-                    <input id="profile-url" type="text" placeholder="Paste profile link or username..." aria-label="TikTok Profile Link" class="w-full pl-12 py-3 text-base sm:text-lg rounded-lg bg-[var(--input-bg-color)] border-2 border-transparent focus:outline-none focus:ring-2 focus:ring-blue-500">
-                </div>
-                <button id="fetch-btn-profile" class="btn-primary w-full text-white font-bold py-3 px-6 rounded-lg shadow-md text-base sm:text-lg">Fetch Profile's Videos</button>
-                <div id="loader-profile" class="hidden flex justify-center items-center mt-6"><div class="spinner"></div><p id="loader-text-profile" class="ml-4">Finding those awesome videos...</p></div>
-                <div id="error-profile" class="hidden mt-6 p-4 bg-red-100 text-red-700 border border-red-300 rounded-lg text-center"></div>
-                <div id="results-profile" class="mt-8">
-                    <div id="profile-controls" class="hidden flex flex-col sm:flex-row items-center justify-between mb-4 gap-4">
-                        <button id="select-all-btn" class="text-sm font-medium text-blue-500 hover:underline">Select All</button>
-                        <button id="download-selected-btn" class="w-full sm:w-auto bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-lg transition disabled:opacity-50" disabled><i class="fas fa-file-archive mr-2"></i>Download as ZIP (<span id="selected-count">0</span>)</button>
-                    </div>
-                    <div id="profile-videos-grid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3"></div>
-                    <button id="load-more-btn" class="hidden mt-6 w-full bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 font-bold py-3 px-6 rounded-lg">Load More</button>
-                </div>
-            </div>
-        </section>
-
-        <!-- Key Features Section -->
-        <section class="main-container p-6 sm:p-8 rounded-2xl shadow-lg mt-8 animate-on-load" style="animation-delay: 0.2s;">
-            <h2 class="text-2xl font-bold mb-6 text-center">Why Choose Our Downloader?</h2>
-            <div class="grid md:grid-cols-3 gap-6 text-center">
-                <div>
-                    <i class="fas fa-video text-3xl mb-2 text-blue-500"></i>
-                    <h3 class="font-semibold text-lg">🎥 HD Video Downloads</h3>
-                    <p class="text-muted-color text-sm"><b>Save TikTok videos in full HD</b> quality, without any distracting watermarks.</p>
-                </div>
-                <div>
-                    <i class="fas fa-users text-3xl mb-2 text-indigo-500"></i>
-                    <h3 class="font-semibold text-lg">👤 Bulk Profile Downloads</h3>
-                    <p class="text-muted-color text-sm"><b>Download all videos from a user</b> at once with our easy-to-use profile downloader.</p>
-                </div>
-                <div>
-                    <i class="fas fa-images text-3xl mb-2 text-purple-500"></i>
-                    <h3 class="font-semibold text-lg">🖼️ Photos & MP3 Audio</h3>
-                    <p class="text-muted-color text-sm"><b>Convert slideshows to ZIP or MP3 audio</b>, giving you full control over your content.</p>
-                </div>
-            </div>
-        </section>
-        
-        <!-- NEW: Rich Content Section with Internal Links -->
-        <section class="main-container p-6 sm:p-8 rounded-2xl shadow-lg mt-8 animate-on-load prose dark:prose-invert max-w-none" style="animation-delay: 0.3s; color: var(--prose-color);">
-            <h2 class="text-2xl font-bold mb-4 text-center">Your Ultimate Solution for TikTok Content</h2>
-            <p>Welcome to TokClipDownloader, the premier online tool designed to help you <a href="#" class="text-blue-500 hover:underline">download TikTok videos without watermark</a> effortlessly. Our platform is built for speed, simplicity, and quality, ensuring you can save your favorite content directly to your device, whether it's an iPhone, Android, or PC. We understand the need for a reliable <strong>TikTok downloader</strong>, which is why our service is completely free and requires no software installation.</p>
-            <p>Beyond single videos, our powerful <a href="#" class="text-blue-500 hover:underline" onclick="document.querySelector('[data-tab=profile]').click()">profile downloader</a> feature allows you to fetch all public videos from any user account in one go. You can then choose to download them individually or as a single ZIP file for convenience. If you have any questions about how our tool works, please check our <a href="#faq" class="text-blue-500 hover:underline">frequently asked questions</a> section below. We are committed to providing a safe and user-friendly experience, as outlined in our <a href="privacy.html" class="text-blue-500 hover:underline">Privacy Policy</a>.</p>
-        </section>
-
-        <!-- FAQ Section -->
-        <section id="faq" class="main-container p-6 sm:p-8 rounded-2xl shadow-lg mt-8 animate-on-load" style="animation-delay: 0.4s;">
-            <h2 class="text-2xl font-bold mb-4 text-center">Frequently Asked Questions (FAQ)</h2>
-            <div id="faq-container" class="space-y-4">
-                <div class="faq-item border-b border-[var(--border-color)] pb-4">
-                    <button class="faq-question w-full flex justify-between items-center text-left font-semibold text-lg">
-                        <span>How to download TikTok videos without watermark?</span>
-                        <i class="faq-icon fas fa-plus transition-transform"></i>
-                    </button>
-                    <div class="faq-answer pt-2 text-muted-color">
-                        <p>It's simple! 1. Find the TikTok video you want. 2. Tap the "Share" button and "Copy Link". 3. Paste the link into our downloader and click "Download". The video will be saved to your device completely watermark-free.</p>
-                    </div>
-                </div>
-                <div class="faq-item border-b border-[var(--border-color)] pb-4">
-                    <button class="faq-question w-full flex justify-between items-center text-left font-semibold text-lg">
-                        <span>Can I save TikTok videos in HD?</span>
-                        <i class="faq-icon fas fa-plus transition-transform"></i>
-                    </button>
-                    <div class="faq-answer pt-2 text-muted-color">
-                        <p>Yes! Our tool always provides the highest quality available for the video, which is often High Definition (HD). You don't need to do anything extra; we handle it for you.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <button class="faq-question w-full flex justify-between items-center text-left font-semibold text-lg">
-                        <span>Does this tool work with TikTok photo slideshows?</span>
-                        <i class="faq-icon fas fa-plus transition-transform"></i>
-                    </button>
-                    <div class="faq-answer pt-2 text-muted-color">
-                        <p>Absolutely. When you paste a link to a photo slideshow, our tool will detect it and give you the option to download each photo individually or all of them together in a convenient ZIP file.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- History Section -->
-        <section id="history-section" class="mt-12 animate-on-load" style="animation-delay: 0.5s;"><h2 class="text-2xl font-bold mb-4">Download History</h2><div id="history-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"><p id="no-history" class="text-muted-color col-span-full text-center py-4"><i class="fas fa-history text-4xl mb-2 text-gray-400"></i><br>Your download history will appear here.</p></div></section>
-    </main>
-    <footer class="text-center p-6 mt-6 text-muted-color animate-on-load" style="animation-delay: 0.6s;">
-        <div class="flex justify-center flex-wrap gap-x-4 gap-y-2 sm:gap-x-6 mb-4 text-sm">
-            <a href="privacy.html" class="hover:text-blue-500 transition">Privacy Policy</a>
-            <a href="terms.html" class="hover:text-blue-500 transition">Terms of Service</a>
-            <a href="dmca.html" class="hover:text-blue-500 transition">DMCA</a>
-            <a href="contact.html" class="hover:text-blue-500 transition">Contact</a>
+    <header class="header-main">
+        <div class="container">
+            <a href="#" class="logo">EcoShopin</a>
         </div>
-        <p class="mt-4 text-sm">&copy; 2025 TokClipDownloader. This site is not affiliated with TikTok.</p>
+    </header>
+
+    <main>
+        <section class="hero-section">
+            <div class="container">
+                <h1>هل مللت من فوضى الأسلاك والعداد الكهربائي؟</h1>
+                <p>حول مدخل منزلك إلى تحفة فنية منظمة وأنيقة مع منظم ومخبأ لوحة الكهرباء الخشبي!</p>
+                <div class="hero-main-image">
+                    <img src="https://ecoshopin.store/cdn/shop/files/Screenshot_2025-10-30_195416.png?v=1761863080&width=990" alt="منظم لوحة كهرباء خشبي أنيق مع مفاتيح وديكورات">
+                </div>
+                <a href="#order-form-section" class="cta-button">
+                    <i class="fas fa-bolt"></i> نعم! أريد حلاً لمشكلتي الآن!
+                </a>
+            </div>
+        </section>
+
+        <section class="product-gallery">
+            <div class="container">
+                <h2 class="section-title">شاهد بنفسك كيف سيغير شكل منزلك!</h2>
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <img src="https://ecoshopin.store/cdn/shop/files/Screenshot_2025-10-30_195437.png?v=1761863080&width=990" alt="منظم مفاتيح متكامل">
+                        <div class="caption">يخفي العداد ويمنحك رفوفاً عملية لترتيب المفاتيح والديكورات</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://ecoshopin.store/cdn/shop/files/Screenshot_2025-10-30_195416.png?v=1761863080&width=990" alt="جمالية التصميم">
+                        <div class="caption">تصميم خشبي فاخر يضيف لمسة دافئة وعصرية لمدخل منزلك</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://ecoshopin.store/cdn/shop/files/Screenshot2025-10-30195347.png?v=1761863080&width=990" alt="جودة ومتانة">
+                        <div class="caption">مصنوع من أجود أنواع الخشب لضمان المتانة وطول العمر</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="features-section">
+            <div class="container">
+                <h2 class="section-title">مميزات تجعل هذا المنظم ضرورياً لمنزلك:</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <i class="fas fa-eye-slash"></i>
+                        <div class="feature-card-content">
+                            <h4>وداعاً للأسلاك الفوضوية!</h4>
+                            <p>يخفي لوحة الكهرباء بالكامل، ويجعل منزلك يبدو أكثر ترتيباً وأناقة.</p>
+                        </div>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-key"></i>
+                        <div class="feature-card-content">
+                            <h4>منظم مفاتيح ذكي</h4>
+                            <p>خطافات قوية ومتينة لتعليق جميع مفاتيحك في مكان واحد، لا مزيد من الضياع!</p>
+                        </div>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-palette"></i>
+                        <div class="feature-card-content">
+                            <h4>لمسة جمالية مغربية راقية</h4>
+                            <p>تصميم مستوحى من الأناقة المغربية، يضفي طابعاً خاصاً ومميزاً على مدخل بيتك.</p>
+                        </div>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-box-open"></i>
+                        <div class="feature-card-content">
+                            <h4>سهولة التركيب والاستخدام</h4>
+                            <p>يمكن تركيبه بسهولة وسرعة، مع إمكانية الوصول للعداد عند الضرورة.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="price-cta-section">
+            <div class="container">
+                <h2 class="section-title">لا تفوت الفرصة! خصم لا يتكرر!</h2>
+                <p class="old-price">الثمن الأصلي: <del>599 درهم</del></p>
+                <p class="new-price">احصل عليه الآن بـ <span></span>399 درهم فقط!</p>
+                <a href="#order-form-section" class="cta-button">
+                    <i class="fas fa-shopping-cart"></i> اطلب الآن والدفع عند الاستلام
+                </a>
+            </div>
+        </section>
+
+        <section class="testimonials-section">
+            <div class="container">
+                <h2 class="section-title">ماذا يقول عملاؤنا السعداء؟</h2>
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <p>"كنت أعاني من فوضى الأسلاك في المدخل، لكن هذا المنظم حل المشكلة تماماً! شكله أنيق جداً والكل يسأل عنه. أنصح به بشدة."</p>
+                    <div class="customer-name">- فاطمة، <span>الدار البيضاء</span></div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p>"منتج رائع وعملي، أخفى لوحة الكهرباء القبيحة، وأعطى للمدخل لمسة جميلة. الجودة ممتازة وسهل التركيب."</p>
+                    <div class="customer-name">- يوسف، <span>الرباط</span></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="order-form-section" class="order-form-section">
+            <div class="container">
+                <h2 class="section-title">أكمل بياناتك واستلم منتجك لباب بيتك!</h2>
+                <form class="order-form">
+                    <div class="form-group">
+                        <label for="fullName"><i class="fas fa-user"></i> الاسم الكامل:</label>
+                        <input type="text" id="fullName" name="fullName" required placeholder="أدخل اسمك الكامل هنا">
+                    </div>
+                    <div class="form-group">
+                        <label for="city"><i class="fas fa-city"></i> المدينة:</label>
+                        <input type="text" id="city" name="city" required placeholder="مثال: الدار البيضاء، مراكش، طنجة">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone"><i class="fas fa-phone-alt"></i> رقم الهاتف:</label>
+                        <input type="tel" id="phone" name="phone" required placeholder="أدخل رقم هاتفك (مثال: 06XXXXXXXX)">
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="submit-button">
+                            <i class="fas fa-check-circle"></i> تأكيد الطلب والدفع عند الاستلام
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <section class="guarantees-section">
+            <div class="container">
+                <h2 class="section-title">نحن نضمن لك راحة البال!</h2>
+                <div class="guarantees-grid">
+                    <div class="guarantee-item">
+                        <i class="fas fa-shipping-fast"></i>
+                        <h5>شحن مجاني وسريع</h5>
+                        <p>توصيل لجميع مدن المغرب في أقصر وقت ممكن.</p>
+                    </div>
+                    <div class="guarantee-item">
+                        <i class="fas fa-handshake"></i>
+                        <h5>الدفع عند الاستلام</h5>
+                        <p>لا تدفع أي مبلغ حتى يصلك المنتج وتتأكد من جودته.</p>
+                    </div>
+                    <div class="guarantee-item">
+                        <i class="fas fa-shield-alt"></i>
+                        <h5>ضمان الجودة والرضا</h5>
+                        <p>منتج أصلي 100%، وفي حال لم يعجبك يمكنك استعادة نقودك.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 EcoShopin. جميع الحقوق محفوظة.</p>
+            <p>للاستفسارات، تواصل معنا: <a href="tel:0612345678" style="color: #dee2e6; text-decoration: none;">0612345678</a></p>
+        </div>
     </footer>
 
-    <!-- Modal for messages -->
-    <div id="modal-container" class="fixed inset-0 z-50 overflow-y-auto hidden" aria-labelledby="modal-title" role="dialog" aria-modal="true"></div>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // --- DOM Elements & State ---
-            const elements = {
-                tabs: document.querySelectorAll('.tab-btn'),
-                tabContents: document.querySelectorAll('.tab-content'),
-                themeToggle: document.getElementById('theme-toggle'),
-                faqContainer: document.getElementById('faq-container'),
-                singleUrl: document.getElementById('single-url'),
-                pasteBtnSingle: document.getElementById('paste-btn-single'),
-                clearBtnSingle: document.getElementById('clear-btn-single'),
-                downloadBtnSingle: document.getElementById('download-btn-single'),
-                loaderSingle: document.getElementById('loader-single'),
-                loaderTextSingle: document.getElementById('loader-text-single'),
-                errorSingle: document.getElementById('error-single'),
-                resultsSingle: document.getElementById('results-single'),
-                profileUrl: document.getElementById('profile-url'),
-                fetchBtnProfile: document.getElementById('fetch-btn-profile'),
-                loaderProfile: document.getElementById('loader-profile'),
-                loaderTextProfile: document.getElementById('loader-text-profile'),
-                errorProfile: document.getElementById('error-profile'),
-                resultsProfile: document.getElementById('results-profile'),
-                profileControls: document.getElementById('profile-controls'),
-                selectAllBtn: document.getElementById('select-all-btn'),
-                downloadSelectedBtn: document.getElementById('download-selected-btn'),
-                selectedCount: document.getElementById('selected-count'),
-                videosGrid: document.getElementById('profile-videos-grid'),
-                loadMoreBtn: document.getElementById('load-more-btn'),
-                historyContainer: document.getElementById('history-container'),
-                noHistoryMsg: document.getElementById('no-history'),
-                modalContainer: document.getElementById('modal-container'),
-            };
-            let downloadHistory = JSON.parse(localStorage.getItem('downloadHistory')) || [];
-            let profileState = { cursor: 0, unique_id: '', videos: [] };
-
-            // --- TABS & THEME ---
-            elements.tabs.forEach(tab => {
-                tab.addEventListener('click', () => {
-                    elements.tabs.forEach(t => t.classList.remove('active'));
-                    elements.tabContents.forEach(c => c.classList.remove('active'));
-                    tab.classList.add('active');
-                    document.getElementById(tab.dataset.tab).classList.add('active');
-                });
-            });
-            elements.themeToggle.addEventListener('change', () => {
-                localStorage.setItem('darkMode', elements.themeToggle.checked);
-                applyTheme(elements.themeToggle.checked);
-            });
-            const applyTheme = (isDark) => {
-                document.documentElement.classList.toggle('dark', isDark);
-                elements.themeToggle.checked = isDark;
-            };
-            
-            // --- FAQ ACCORDION ---
-            elements.faqContainer.addEventListener('click', (e) => {
-                const questionButton = e.target.closest('.faq-question');
-                if (questionButton) {
-                    const faqItem = questionButton.parentElement;
-                    const wasOpen = faqItem.classList.contains('open');
-                    document.querySelectorAll('.faq-item.open').forEach(item => item.classList.remove('open'));
-                    if (!wasOpen) {
-                        faqItem.classList.add('open');
-                    }
-                }
-            });
-
-            // --- MODAL ---
-            const showModal = (title, message) => {
-                elements.modalContainer.innerHTML = `
-                    <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
-                        <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" aria-hidden="true"></div>
-                        <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
-                        <div class="inline-block align-bottom bg-[var(--card-bg-color)] rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full modal-content">
-                            <div class="px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
-                                <h3 class="text-lg leading-6 font-medium text-[var(--text-color)]" id="modal-title">${title}</h3>
-                                <div class="mt-2"><p class="text-sm text-[var(--text-muted-color)]">${message}</p></div>
-                            </div>
-                            <div class="px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
-                                <button type="button" class="modal-close-btn w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-blue-600 text-base font-medium text-white hover:bg-blue-700 focus:outline-none sm:ml-3 sm:w-auto sm:text-sm">Got it</button>
-                            </div>
-                        </div>
-                    </div>`;
-                elements.modalContainer.classList.remove('hidden');
-                elements.modalContainer.querySelector('.modal-close-btn').addEventListener('click', () => elements.modalContainer.classList.add('hidden'));
-            };
-
-            // --- Robust File Download Function ---
-            const triggerDownload = async (url, filename, btn) => {
-                const originalHTML = btn.innerHTML;
-                btn.disabled = true;
-                btn.innerHTML = `<i class="fas fa-spinner fa-spin mr-2"></i>Preparing...`;
-                try {
-                    const proxyUrl = `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(url)}`;
-                    const response = await fetch(proxyUrl);
-                    if (!response.ok) throw new Error(`Network response was not ok: ${response.statusText}`);
-                    const blob = await response.blob();
-                    saveAs(blob, filename);
-                } catch (error) {
-                    console.error('Download failed:', error);
-                    showError('single', 'Download failed. The file might be protected or the network failed. Please try again.');
-                } finally {
-                    btn.disabled = false;
-                    btn.innerHTML = originalHTML;
-                }
-            };
-            
-            // --- SINGLE POST DOWNLOADER ---
-            const handleSingleDownload = async () => {
-                const url = elements.singleUrl.value.trim();
-                if (!url) { showError('single', 'Please paste a TikTok link first.'); return; }
-                hideError('single'); elements.resultsSingle.innerHTML = ''; showLoader('single', 'Processing...');
-                try {
-                    const result = await fetchApi({ url });
-                    if (result.data.images && result.data.images.length > 0) renderSlideshowResults(result.data);
-                    else if (result.data.play) renderVideoResults(result.data);
-                    else throw new Error("Unsupported content type.");
-                    addToHistory(result.data);
-                } catch (error) { showError('single', error.message); } finally { hideLoader('single'); }
-            };
-            elements.downloadBtnSingle.addEventListener('click', handleSingleDownload);
-            elements.pasteBtnSingle.addEventListener('click', async () => { try { elements.singleUrl.value = await navigator.clipboard.readText(); } catch (e) { showError('single', 'Failed to paste from clipboard.'); }});
-            elements.clearBtnSingle.addEventListener('click', () => { elements.singleUrl.value = ''; elements.resultsSingle.innerHTML = ''; hideError('single'); });
-            
-            const renderAuthorInfo = (data) => `<div class="flex items-center mb-4"><img src="${data.author.avatar}" class="w-16 h-16 rounded-full border-2 border-blue-500" alt="Profile picture for ${data.author.nickname}" onerror="this.onerror=null;this.src='https://placehold.co/64x64/f0f2f5/333?text=...';"><div class="ml-4 overflow-hidden"><h3 class="text-xl font-semibold">${data.author.nickname}</h3><p class="text-muted-color truncate">@${data.author.unique_id}</p></div></div><p class="mb-4">${data.title}</p>`;
-
-            const renderVideoResults = (data) => {
-                elements.resultsSingle.innerHTML = `
-                    <div class="p-4 border border-[var(--border-color)] rounded-lg animate-on-load">
-                        ${renderAuthorInfo(data)}
-                        <video class="w-full rounded-lg mb-4" controls src="${data.wmplay}" title="TikTok video preview for ${data.title}"></video>
-                        <div class="grid sm:grid-cols-2 gap-3">
-                            <button onclick="triggerDownload('${data.play}', 'tokclipdownloader_${data.id}.mp4', this)" class="download-btn w-full text-center bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-4 rounded-lg transition"><i class="fas fa-video mr-2"></i>Download Video (MP4)</button>
-                            <button onclick="triggerDownload('${data.music}', 'tokclipdownloader_${data.id}.mp3', this)" class="download-btn w-full text-center bg-purple-500 hover:bg-purple-600 text-white font-bold py-3 px-4 rounded-lg transition ${!data.music ? 'hidden' : ''}"><i class="fas fa-music mr-2"></i>Download Audio (MP3)</button>
-                        </div>
-                    </div>`;
-                window.triggerDownload = triggerDownload;
-            };
-
-            const renderSlideshowResults = (data) => {
-                const imageGrid = data.images.map((img_src, index) => `
-                    <div class="relative group">
-                        <img src="${img_src}" class="rounded-lg w-full h-full object-cover" alt="Slide ${index + 1} from TikTok by ${data.author.nickname}">
-                        <a href="${img_src}" download="tokclipdownloader_slide_${data.id}_${index+1}.jpeg" class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center text-white text-2xl opacity-0 group-hover:opacity-100 transition" aria-label="Download image ${index + 1}"><i class="fas fa-download"></i></a>
-                    </div>
-                `).join('');
-
-                elements.resultsSingle.innerHTML = `
-                    <div class="p-4 border border-[var(--border-color)] rounded-lg animate-on-load">
-                        ${renderAuthorInfo(data)}
-                        <div class="grid grid-cols-2 md:grid-cols-3 gap-2 mb-4">${imageGrid}</div>
-                        <button id="download-zip-btn" class="w-full text-center bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-4 rounded-lg transition"><i class="fas fa-file-archive mr-2"></i>Download All Images (ZIP)</button>
-                    </div>`;
-                
-                document.getElementById('download-zip-btn').addEventListener('click', () => downloadImagesAsZip(data.images, data.id));
-            };
-            
-            const downloadImagesAsZip = async (imageUrls, id) => {
-                showLoader('single', 'Zipping images... 0%');
-                const zip = new JSZip();
-                let count = 0;
-                try {
-                    const promises = imageUrls.map(async (url, index) => {
-                        const proxyUrl = `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(url)}`;
-                        const response = await fetch(proxyUrl);
-                        if (!response.ok) return;
-                        const blob = await response.blob();
-                        zip.file(`tokclipdownloader_slide_${id}_${index + 1}.jpeg`, blob);
-                        count++;
-                        elements.loaderTextSingle.textContent = `Zipping images... ${Math.round((count / imageUrls.length) * 100)}%`;
-                    });
-                    await Promise.all(promises);
-                    showLoader('single', 'Generating ZIP file...');
-                    const content = await zip.generateAsync({ type: "blob" });
-                    saveAs(content, `tokclipdownloader_slideshow_${id}.zip`);
-                } catch (error) {
-                    showError('single', "Failed to create ZIP file. The proxy used may be down.");
-                } finally {
-                    hideLoader('single');
-                }
-            };
-
-            // --- PROFILE DOWNLOADER ---
-            const handleFetchProfile = async (loadMore = false) => {
-                if (!loadMore) {
-                    const url = elements.profileUrl.value.trim();
-                    if (!url) { showError('profile', 'Please paste a profile link or username.'); return; }
-                    const match = url.match(/tiktok\.com\/@([^/?]+)/);
-                    profileState.unique_id = match ? match[1] : url.replace('@', '');
-                    profileState.cursor = 0;
-                    profileState.videos = [];
-                    elements.videosGrid.innerHTML = '';
-                    elements.profileControls.classList.add('hidden');
-                }
-                hideError('profile'); showLoader('profile', `Finding awesome videos...`);
-                try {
-                    const result = await fetchApi({ unique_id: profileState.unique_id, cursor: profileState.cursor });
-                    if (result.data && result.data.videos && result.data.videos.length > 0) {
-                        profileState.videos.push(...result.data.videos);
-                        renderProfileVideos(result.data.videos);
-                        profileState.cursor = result.data.cursor;
-                        elements.loadMoreBtn.classList.toggle('hidden', !result.data.hasMore);
-                        elements.profileControls.classList.remove('hidden');
-                    } else {
-                        elements.loadMoreBtn.classList.add('hidden');
-                        if (!loadMore) throw new Error("No videos found or the profile is private.");
-                    }
-                } catch (error) { showError('profile', error.message); } finally { hideLoader('profile'); }
-            };
-            elements.fetchBtnProfile.addEventListener('click', () => handleFetchProfile(false));
-            elements.loadMoreBtn.addEventListener('click', () => handleFetchProfile(true));
-            
-            const renderProfileVideos = (videos) => {
-                const html = videos.map(video => `
-                    <div class="relative group animate-on-load">
-                        <img src="${video.cover}" class="rounded-lg w-full h-full object-cover aspect-square" alt="TikTok video by ${profileState.unique_id}">
-                        <div class="absolute inset-0 bg-black bg-opacity-40 flex items-end p-2 text-white text-xs opacity-0 group-hover:opacity-100 transition">${video.title}</div>
-                        <input type="checkbox" data-url="${video.play}" data-id="${video.id}" class="profile-video-checkbox absolute top-2 right-2 w-6 h-6 rounded-sm bg-white/50 checked:bg-blue-500 border-none focus:ring-0 cursor-pointer">
-                    </div>
-                `).join('');
-                elements.videosGrid.insertAdjacentHTML('beforeend', html);
-                updateSelectedCount();
-            };
-
-            elements.selectAllBtn.addEventListener('click', (e) => {
-                const isSelectAll = e.target.textContent === 'Select All';
-                document.querySelectorAll('.profile-video-checkbox').forEach(cb => cb.checked = isSelectAll);
-                e.target.textContent = isSelectAll ? 'Deselect All' : 'Select All';
-                updateSelectedCount();
-            });
-
-            elements.videosGrid.addEventListener('change', updateSelectedCount);
-
-            function updateSelectedCount() {
-                const count = document.querySelectorAll('.profile-video-checkbox:checked').length;
-                elements.selectedCount.textContent = count;
-                elements.downloadSelectedBtn.disabled = count === 0;
-            }
-
-            // --- GUARANTEED FIX V4: The Architect's Solution ---
-            elements.downloadSelectedBtn.addEventListener('click', async () => {
-                const selectedCheckboxes = Array.from(document.querySelectorAll('.profile-video-checkbox:checked'));
-                const totalVideos = selectedCheckboxes.length;
-                if (totalVideos === 0) {
-                    showError('profile', 'Please select at least one video to download.');
-                    return;
-                }
-
-                showModal('Creating ZIP File', `We are preparing a ZIP file with your ${totalVideos} selected videos. This might take a moment. Please wait.`);
-                hideError('profile');
-                showLoader('profile', `Step 1 of 2: Fetching ${totalVideos} videos...`);
-
-                // STAGE 1: Fetch all selected videos first.
-                const fetchPromises = selectedCheckboxes.map((checkbox, index) => {
-                    const url = checkbox.dataset.url;
-                    const id = checkbox.dataset.id;
-                    // Use a unique, numbered filename as requested.
-                    const filename = `video_${index + 1}_${id}.mp4`;
-                    const proxyUrl = `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(url)}`;
-                    
-                    return fetch(proxyUrl)
-                        .then(response => {
-                            if (!response.ok) throw new Error(`Failed to fetch video ${id}`);
-                            return response.blob();
-                        })
-                        .then(blob => {
-                            if (blob.size === 0) throw new Error(`Fetched empty file for video ${id}`);
-                            return { filename, blob };
-                        });
-                });
-
-                // Wait for all fetches to complete (either success or failure).
-                const results = await Promise.allSettled(fetchPromises);
-                
-                // STAGE 2: Filter successful downloads and create the ZIP.
-                const successfulDownloads = [];
-                results.forEach(result => {
-                    if (result.status === 'fulfilled' && result.value) {
-                        successfulDownloads.push(result.value);
-                    } else if (result.status === 'rejected') {
-                        console.warn("A video download failed:", result.reason);
-                    }
-                });
-
-                const downloadedCount = successfulDownloads.length;
-                const failedCount = totalVideos - downloadedCount;
-
-                if (downloadedCount === 0) {
-                    showError('profile', "Could not download any of the selected videos. Please try again.");
-                    hideLoader('profile');
-                    return;
-                }
-
-                if (failedCount > 0) {
-                    showModal("Partial Download", `Successfully fetched ${downloadedCount} videos. Failed to fetch ${failedCount}. The ZIP file will contain only the successful downloads.`);
-                }
-
-                try {
-                    const zip = new JSZip();
-                    // Add only the successfully fetched blobs to the zip.
-                    successfulDownloads.forEach(file => {
-                        zip.file(file.filename, file.blob);
-                    });
-
-                    showLoader('profile', `Step 2 of 2: Zipping ${downloadedCount} files...`);
-                    const content = await zip.generateAsync({
-                        type: "blob"
-                    }, (metadata) => {
-                        const percent = metadata.percent.toFixed(2);
-                        showLoader('profile', `Step 2 of 2: Zipping files... ${percent}%`);
-                    });
-
-                    saveAs(content, `tokclipdownloader_${profileState.unique_id}_${downloadedCount}_videos.zip`);
-                    showError('profile', `Your ZIP file with ${downloadedCount} videos has been downloaded.`);
-
-                } catch (error) {
-                    console.error('ZIP creation failed:', error);
-                    showError('profile', `Failed to create ZIP file. ${error.message}`);
-                } finally {
-                    hideLoader('profile');
-                }
-            });
-
-            // --- GENERIC & HELPER FUNCTIONS ---
-            const fetchApi = async (params) => {
-                const isProfile = !!params.unique_id;
-                const endpoint = isProfile ? `https://www.tikwm.com/api/user/posts?unique_id=@${params.unique_id}&count=12&cursor=${params.cursor || 0}` : `https://www.tikwm.com/api/`;
-                const options = isProfile ? { method: 'GET' } : { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: `url=${encodeURIComponent(params.url)}` };
-                const response = await fetch(endpoint, options);
-                if (!response.ok) throw new Error('Network error, please try again.');
-                const result = await response.json();
-                if (result.code !== 0) throw new Error(result.msg || 'API error, please check the link or try again later.');
-                return result;
-            };
-            const showLoader = (type, text = 'Processing...') => {
-                document.getElementById(`loader-${type}`).classList.remove('hidden');
-                document.getElementById(`loader-text-${type}`).textContent = text;
-            };
-            const hideLoader = (type) => document.getElementById(`loader-${type}`).classList.add('hidden');
-            const showError = (type, msg) => { document.getElementById(`error-${type}`).textContent = msg; document.getElementById(`error-${type}`).classList.remove('hidden'); };
-            const hideError = (type) => document.getElementById(`error-${type}`).classList.add('hidden');
-            
-            const addToHistory = (data) => {
-                if (!downloadHistory.some(item => item.id === data.id)) {
-                    downloadHistory.unshift({ id: data.id, title: data.title, cover: data.cover, author: data.author.unique_id });
-                    if (downloadHistory.length > 9) downloadHistory.pop();
-                    localStorage.setItem('downloadHistory', JSON.stringify(downloadHistory));
-                    renderHistory();
-                }
-            };
-
-            const renderHistory = () => {
-                elements.historyContainer.innerHTML = '';
-                elements.noHistoryMsg.classList.toggle('hidden', downloadHistory.length > 0);
-                if (downloadHistory.length > 0) {
-                    downloadHistory.forEach(item => {
-                        const historyItem = document.createElement('div');
-                        historyItem.className = 'history-item p-4 rounded-lg shadow flex items-center gap-4 border border-[var(--border-color)]';
-                        historyItem.innerHTML = `<img src="${item.cover}" class="w-16 h-16 rounded-md object-cover" onerror="this.onerror=null;this.src='https://placehold.co/64x64/1f2937/f9fafb?text=...';"><div class="overflow-hidden"><p class="font-semibold truncate">${item.title}</p><a href="https://www.tiktok.com/@${item.author}/video/${item.id}" target="_blank" class="text-sm text-blue-500 hover:underline">Watch on TikTok</a></div>`;
-                        elements.historyContainer.appendChild(historyItem);
-                    });
-                } else {
-                    elements.historyContainer.appendChild(elements.noHistoryMsg);
-                }
-            };
-            
-            // --- INITIALIZATION ---
-            applyTheme(localStorage.getItem('darkMode') === 'true');
-            renderHistory();
-        });
-    </script>
 </body>
 </html>
